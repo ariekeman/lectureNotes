@@ -203,16 +203,17 @@ I hear my alarm.
 If I don't hear my alarm, then I will be late for class.
 I'm not late for class.
 
---> What can I conclude?
+--> What can I conclude? I did hear my alarm
 
-
+	contrapositive of a promise
 
 
 IF I don't hear my alarm THEN I will be late for class.
 
 is equivalent to:
-
-
+	If I'm not late for class, the I did hear my alarm
+	
+	p->q is equivalent to !p->!q
 
 
 
@@ -222,7 +223,7 @@ if (condition) {
 
 --> what if we know statement is NOT executed? 
 
-
+	Then the condition was false
 
 If p Then q
 
@@ -241,7 +242,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. What do we know?
 
-
+	nothing! y could have been 17 before
 
 
 /////////////////////////////////////////////////////////
@@ -254,7 +255,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. Can we conclude anything now?
 
-
+	the condition (num < 4 || x >= 10) must have been true
 
 
 
@@ -267,6 +268,9 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is NOT 17 here. What do we know?
 
+	the condition (num < 4 || x >= 10) is false
+	num >= 4 AND x < 10
+	(DeMorgan's Law)
 
 ///////////////////////////////////////////////////////
 
@@ -289,10 +293,10 @@ Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 ///////////////////////////////////////////////////////
 
-Who can say, "I'm a knave"? 
+Who can say, "I'm a knave"? NOBODY
 
-Can a knight?
-Can a knave?
+Can a knight?	would be a lie
+Can a knave?	would be the truth
 
 
 
@@ -304,12 +308,17 @@ Eve says, "I am a knave or Fred is a knight."
 
 
 
-What are Eve and Fred? 
+What are Eve and Fred? both knights
 
-
+	Suppose Eve is a knight:
+		Whole statement needs to be true
+		Fred is a knight
+	Suppose Eve is a knave:
+		Whole statement needs to be false
+		Impossible since the first part says Eve is a knave
 
 (what does the "or" mean?) 
-
+	inclusive
 
 
 Her WHOLE statement is the or -- we only need to whole statement
@@ -323,16 +332,21 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
+	Rewrite Bob: "Ava and I are knights"
 
+What are Ava and Bob? Ava = knight, Bob = knave
 
-What are Ava and Bob?
-
-
+	Suppose Ava is a knight
+	->	Bob is a knave
+		->	Bob's statement correctly false since they're both not knights
+	Suppose Ava is a knave
+	->	Bob is a knight
+		->	Bob's statement is incorrectly false, so not possible
 
 
 What does "neither" mean?
-    When is Bob's statement true? 
-    When is Bob's statement false? 
+    When is Bob's statement true? both knights
+    When is Bob's statement false? one or both is a knave
 
 
 
