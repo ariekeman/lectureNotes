@@ -43,10 +43,12 @@ else {
     statements3;
 }
 
+--> when is the first (if) condition false?
+    x >= 3 && y <= 4
 
 
---> is it possible for "statements2" to execute?7
-
+--> is it possible for "statements2" to execute? NO
+    y can't be 7 and the first 'if' be false
 
 
 
@@ -66,12 +68,25 @@ Sarah tells you that only a knave would say that Bill is a knave.
 Bill claims that it's false that Mae is a knave.
 Mae tells you, "Bill would tell you that I am a knave."
 
-What types are Sarah, Bill, and Mae?
+What types are Sarah, Bill, and Mae? 
+    -> They are all knaves
 
 
 (How might we simplify everything?)
 
+Sarah: Bill is a knights
+Bill: Mae is a knight
+Mae tells you, "Bill would tell you that I am a knave."
 
+Suppose Sarah is a knight:
+    Bill has to be a knight
+        Mae is a knight (Mae's statement would be a lie) --> IMPOSSIBLE
+
+Suppose Sarah is a knave:
+    Bill has to be a knave
+        Mae has to be a knave
+        ->  This statement works since Bill would lie and say she's a knight,
+            so she lies about what he would say
     
 
 
@@ -87,8 +102,12 @@ On Sunday, everyone tells the truth.
 Lion says: "Yesterday was one of my lying days."
 Unicorn says: "Yesterday was one of my lying days, too."
 
-What day is it?
+What day is it? -> Thursday
 
+Suppose Sunday: No, Lion would be lying on a truth day
+Suppose Monday: No, Unicorn would be lying on a truth day
+Suppose Tues/Wed/Fri/Sat: No, one would be telling the truth on a lie day and the other would be lying on a truth day
+Suppose Thurs: YES, Lion is telling the truth, and Unicorn is lying, both on the correct days
 
 
 ////////////////////////////////
@@ -108,6 +127,9 @@ The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
 
+Sunday is the only day where they won't repeat the same name by one telling the truth with their own name,
+    with the other lying with the other's name
+-> Both are telling the truth and saying their own name
 
 
 
@@ -137,9 +159,18 @@ You don't know what day it is, but are sure that it isn’t
 The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
-Who gets the rattle?
+Who gets the rattle? -> The first twin
 
-Who is who?
+Suppose the first is telling the truth: -> give rattle to first one
+    Dee owns the rattle
+    Second lies and the first is Dee
+
+Suppose the first is lying: -> give rattle to the first one
+    Dum owns the rattle
+    Second tells the truth and is Dee
+        First one is Dum
+
+Who is who? -> Not enough information
 
 
 ///////////////////////////////////////////
@@ -194,8 +225,14 @@ Bernard says: "At first I didn't know when Cheryl's
 Albert says: "Then I also know when Cheryl's birthday is."
 
 
-When is it?
+When is it? -> July 16th
 
+Albert: Birthday has to be a month with duplicate dates with other months
+Bernard: Can't be the 14th, since he can't differentiate each operation
+    ->  Bernard knows the date, but we don't know Yesterday
+Albert: Since he now also knows that the 14th doesn't work, he can be certain it's in July
+
+--> The only day in July and not the 14th is July 16th
 
 
 
@@ -236,28 +273,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    F 
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -275,16 +312,16 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #    T
+T F  #    F  
+F T  #    T
+F F  #    T 
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
 
-
+if/conditional statements
 
 //////////////////////////////////////////
 
