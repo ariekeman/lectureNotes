@@ -58,11 +58,12 @@ Conclusion: Fred doesn't like pizza.
 
 
 
---> Is this a valid argument? 
+--> Is this a valid argument? YES*
 
 
 
 (is there a hidden assumption we're making about Fred?)
+Fred is a person
 
 
 
@@ -71,23 +72,23 @@ Conclusion: Fred doesn't like pizza.
 ////////////////////////////////////////////////////////
 
 Logical Arguments with "OR"
-    - can be ambiguous! Why?
+    - can be ambiguous! Why? exclusive vs inclusive
 
 
 I order fries or I order chips.
 
 
 
-- in English, how do we interpret "or"? 
+- in English, how do we interpret "or"? exclusive
 
 
 
-- in programming? 
+- in programming? || inclusive
 
 
 
 
-"Or" in THIS class: 
+"Or" in THIS class: inclusive unless otherwise specified
 
 
 
@@ -101,7 +102,7 @@ Premise 2: I don't fold the laundry.
 --> What can I conclude? 
 
 
-
+I'll do the dishes
 
 //////////////////////////////////////////////////////////
 
@@ -113,8 +114,12 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? x >= 10
 
+The condition must have been true since we know we entered
+the if statement. Since we know num < 4 is false (because num
+is 5), we can conclude that the other side of the OR, x >= 10,
+must be true.
 
 
 
@@ -131,8 +136,18 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? num < 4 for the outer, num > 2 for the inner
 
+suppose num is an int.
+
+
+num must be 3
+If the statement was executed, the conditions of both if
+statements must have been true. From the outer condition,
+we already know x >= 10 is false since x is 9. This tells us 
+that the other side of the OR in that condition, num < 4, is true.
+The inner condition tells us that num > 2 is true. If num
+is an int, the only possibility is that num is 3.
 
 
 ////////////////////////////////////////////////////////
@@ -141,7 +156,7 @@ What rule are we seeing with an "or" statement,
 where we know that one of the statements is NOT true?
 
 
-
+the other side is true
 
 
 
@@ -152,12 +167,15 @@ Logical Arguments with "IF/THEN" (aka "implies" -> )
 If it is raining, then I will get wet.
 It is raining.
 
---> What can I conclude? 
+--> What can I conclude? I will get wet 
 
 
 
 
 How to write with -> symbol?
+    p: it is raining
+    q: I will get wet
+    p -> q
 
 
 
@@ -168,7 +186,7 @@ and we know that the "if" part is true?
 
     ...what can we always conclude?
 
-
+the then part is true (modus ponens)
 
 
 
@@ -177,9 +195,13 @@ and we know that the "if" part is true?
 If I don't hear my alarm, then I will be late for class.
 I am late for class.
 
---> What can I conclude?
+--> What can I conclude? nothing
 
+I might have heard my alarm, turned it off, and gone back to sleep.
+I might have gotten into a car wreck on the way to class.
+I might have stopped for coffee.
 
+...there are many reasons why I might be late
 
 
 
@@ -189,9 +211,11 @@ I am late for class.
 If I don't hear my alarm, then I will be late for class.
 I hear my alarm.
 
---> What can I conclude? 
+--> What can I conclude? nothing
 
-
+I might either be on time for class or late for any number
+of reasons (gone back to sleep, car wreck, etc.). I can't
+conclude anything.
 
 
 
@@ -203,16 +227,22 @@ I hear my alarm.
 If I don't hear my alarm, then I will be late for class.
 I'm not late for class.
 
---> What can I conclude?
+--> What can I conclude? I did hear my alarm
+
+If I didn't hear my alarm, I would have been late, which would
+be a contradiction. Therefore I must have heard my alarm.
 
 
+
+contrapositive
 
 
 IF I don't hear my alarm THEN I will be late for class.
 
 is equivalent to:
+If I'm not late for class, then I did hear my alarm
 
-
+p->q  is equivalent to !q->!p (this is the contrapositive)
 
 
 
@@ -222,6 +252,7 @@ if (condition) {
 
 --> what if we know statement is NOT executed? 
 
+then the condition was false
 
 
 If p Then q
@@ -241,7 +272,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. What do we know?
 
-
+nothing (y might have already been 17)
 
 
 /////////////////////////////////////////////////////////
@@ -254,7 +285,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. Can we conclude anything now?
 
-
+num < 4 || x >= 10 must have been true
 
 
 
@@ -267,6 +298,10 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is NOT 17 here. What do we know?
 
+condition is false
+num >= 4 AND x < 10
+
+DeMorgan's law
 
 ///////////////////////////////////////////////////////
 
@@ -289,10 +324,10 @@ Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 ///////////////////////////////////////////////////////
 
-Who can say, "I'm a knave"? 
+Who can say, "I'm a knave"?  nobody
 
-Can a knight?
-Can a knave?
+Can a knight? (would be a lie)
+Can a knave? (would be true)
 
 
 
@@ -304,11 +339,17 @@ Eve says, "I am a knave or Fred is a knight."
 
 
 
-What are Eve and Fred? 
+What are Eve and Fred? both knights
+
+Suppose Eve is a knight. Then for her statement to be true,
+    Fred must be a knight.
+
+Suppose instead Eve is a knave. Then her statement would be 
+    true no matter what Fred is, which shouldn't happen.
 
 
 
-(what does the "or" mean?) 
+(what does the "or" mean?) inclusive
 
 
 
@@ -324,15 +365,25 @@ Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
 
+Rewrite Bob: "Ava and I are knights"
 
-What are Ava and Bob?
 
+
+What are Ava and Bob? Ava = knight, Bob = knave
+
+Suppose Ava is a knight. Then from her statement, 
+    Bob is a knave. Bob's statement is correctly false 
+    since they're not both knights.
+
+Suppose instead that Ava is knave. Then from her statement,
+    Bob must be a knight. Bob's statment is incorrectly false,
+    so not possible. 
 
 
 
 What does "neither" mean?
-    When is Bob's statement true? 
-    When is Bob's statement false? 
+    When is Bob's statement true? both knights
+    When is Bob's statement false? somebody or both is a knave
 
 
 
