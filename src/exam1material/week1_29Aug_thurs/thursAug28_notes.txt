@@ -2,8 +2,8 @@ HW 0 - due today (what to submit?)
 
 HW 1 - due Tuesday, September 2
     be sure to explain your reasoning when asked
-    on logic puzzles, should be clear why your answer is the only  
-        one
+    on logic puzzles, should be clear why your answer is the 
+        only one
 
 
 ////////////////////////////////////////////////////////
@@ -40,8 +40,11 @@ else {
 }
 
 --> when is the first (if) condition false?
+    x >= 3 && y <= 4
 
---> is it possible for "statements2" to execute?7
+
+--> is it possible for "statements2" to execute? NO
+ y can't be 7 and the first if condition also be false
 
 
 
@@ -67,8 +70,21 @@ What types are Sarah, Bill, and Mae?
 
 (How might we simplify everything?)
 
+Sarah: Bill is a knight 
+Bill: Mae is a knight
+Mae tells you, "Bill would tell you that I am a knave."
 
-    
+
+Suppose Sarah is a knight. Then from her statement, Bill would
+    have to be a knight, and from his statement, Mae would
+    have to be a knight. Mae's statement would be a lie, which
+    is impossible.
+
+Suppose instead Sarah is a knave. Then in a similar way from
+    the statements, Bill and Mae would have to be knaves.
+    Her statement works since Bill would lie and say she's a 
+    knight, but she lies about what he would say.
+
 
 
 ////////////////////////////////////
@@ -83,7 +99,16 @@ On Sunday, everyone tells the truth.
 Lion says: "Yesterday was one of my lying days."
 Unicorn says: "Yesterday was one of my lying days, too."
 
-What day is it?
+What day is it? Thursday
+
+Sunday? No, Lion couldn't say that.
+Tuesday/Friday/Wednesday/Saturday? Whoever is lying also
+    lied the day before but should stil be lying about it.
+Monday? Unicorn didn't lie yesterday and shouldn't be lying
+    about it.
+Thursday? yes (Lion did lie yestarday but is correctly telling
+    the truth about it, and Unicorn didn't lie yesterday but is
+    correctly lying about it)
 
 
 
@@ -104,7 +129,10 @@ The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
 
+Any day but Sunday, one lies one tells truth. Would both give 
+same name.
 
+Must be Sunday. They are who they say.
 
 
 
@@ -133,12 +161,25 @@ You don't know what day it is, but are sure that it isn’t
 The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
-Who gets the rattle?
+Who gets the rattle? The first twin
 
-Who is who?
+Suppose the first twin is telling truth. Then Tweedledee owns
+the rattle. The second twin must be lying, so the second twin
+must be Tweedledum. Then Tweedledee is the first twin. We 
+should give the rattle to the first twin.
+
+Suppoes the first twin is lying. Then Tweedledum owns the rattle.
+The second twin is telling the truth, so they are Tweedledee.
+Tweedledum must be the first one, so we give the rattle to the 
+first one.
+
+
+Who is who? We don't know!
 
 
 ///////////////////////////////////////////
+
+(do for practice)
 
 Based on Shakespeare's "Merchant of Venice".
 
@@ -183,6 +224,7 @@ Cheryl privately tells Bernard her birthday day (number).
 Albert says: "I don't know when Cheryl's birthday is,
     but I know Bernard doesn't know too."
 
+
 Bernard says: "At first I didn't know when Cheryl's
     birthday is, but now I do."
 
@@ -190,7 +232,25 @@ Bernard says: "At first I didn't know when Cheryl's
 Albert says: "Then I also know when Cheryl's birthday is."
 
 
-When is it?
+
+
+When is it? July 16
+
+Consider each statement:
+
+1) Albert says: "I don't know when Cheryl's birthday is,
+    but I know Bernard doesn't know too." - It can't be May or
+    June, since each of those have unique numbers and Albert
+    couldn't be sure that Bernard wouldn't know the exact birthday.
+
+2) "At first I didn't know when Cheryl's
+    birthday is, but now I do." - It can't be a remaining day
+    that is duplicated across months or Bernard couldn't be sure-
+    we eliminate July 14 and August 14.
+
+3) "Then I also know when Cheryl's birthday is." - It can't be
+    August, since there are still two potential days remaining
+    in that month. Only possibility is July 16.
 
 
 
@@ -215,13 +275,19 @@ Basic operations:
 Basic logic gates (draw on board)
 
 
+
+
 gates still used to design circuits
 
 
 why do we care about equivalent circuits?
 
+A smaller (equivalent) circuit might take less space and
+cost less money
 
-what about programming?
+
+what about programming? A (smaller/simpler) equivalent program
+might be easier to read and maintain, and might be faster to run.
 
 ///////////////////////////////////////////////////
 
@@ -232,28 +298,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    F   
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -271,16 +337,16 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #    T
+T F  #    F  
+F T  #    T
+F F  #    T
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
 
-
+if, conditional statements
 
 //////////////////////////////////////////
 
@@ -291,7 +357,11 @@ Design circuits for:
 
 p XOR q (with just the gates we've seen, not a specific XOR gate)
 
+(We drew these two circuits on the board)
 
+////////////////////////////////////
+
+<-- Stopped here, will continue on Tuesday
 
 /////////////////////////////////////
 
