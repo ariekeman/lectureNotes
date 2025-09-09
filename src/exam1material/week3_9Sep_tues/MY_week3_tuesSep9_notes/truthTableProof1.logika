@@ -1,0 +1,26 @@
+//(premises separated by commas) |- conclusion
+
+//put * over top-level operator of each premise/conclusion
+
+//list Valid or Invalid afterwards
+//If Valid, put list of relevant truth assignments on same line
+
+//(If Invalid, put list of truth assignments that are counterexamples)
+
+//like Valid [T T T]
+//for example
+
+   
+---------------------------------------
+p q r # (p | q, !q, p ->: r) |-  r & p
+---------------------------------------
+T T T #   
+T T F #   
+T F T #    
+T F F #    
+F T T #    
+F T F #    
+F F T #    
+F F F #    
+---------------------------------------
+

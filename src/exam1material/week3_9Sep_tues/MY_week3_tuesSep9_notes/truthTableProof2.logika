@@ -1,0 +1,16 @@
+//Given: p → ¬q, p → q, p ∨ q
+
+//Prove: q
+
+
+//put * over atom itself if no operators
+//don't need to fill out column
+
+---------------------------------------
+p q # (p ->: !q, p ->: q, p | q) |- q
+---------------------------------------
+T T #  
+T F # 
+F T #  
+F F #  
+----------------------------------------

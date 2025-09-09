@@ -1,0 +1,16 @@
+//premises: p → q, q
+//Conclusion: p
+
+//INVALID argument
+
+         *      *     *
+-------------------------
+p q # (p ->: q, q) |- p
+-------------------------
+T T #    T      T     T
+T F #    F      F     T
+F T #    T      T     F
+F F #    T      F     F
+-------------------------
+
+Invalid [F T]

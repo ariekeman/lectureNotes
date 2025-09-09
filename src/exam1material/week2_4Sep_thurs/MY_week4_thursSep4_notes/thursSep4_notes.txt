@@ -1,0 +1,320 @@
+HW 1 repository issues
+
+
+HW 2 due Tuesday, September 9
+
+--> will be creating 2 image files
+
+--> make sure those are added to your git repository!
+
+////////////////////////////
+
+Today:
+- one more parse tree / circuit
+- begin propositional logic
+- equivalent statements
+- satisfiability
+
+////////////////////////////////////////
+
+Example: another parse tree
+
+p ∧ q ∧ r → ¬p ∨ q → r
+
+
+
+Example: another circuit
+
+p OR q AND NOT p
+
+
+//////////////////////////////////////////
+∧ ∨ ¬ → 
+//////////////////////////////////////////
+
+Propositional logic.
+
+
+- a set of *propositional atoms* (statements that can be T/F)
+    --> these will be our boolean variables in logic statements
+    --> minimal (don't contain any logical operators)
+
+
+
+- connected by logical operators
+
+
+
+- join together to make new *propositions* (logical sentences)
+    that can be true or false
+
+
+
+////////////////////////////////////////
+
+Example: 
+
+z != 7 && str.contains(sub)
+
+
+--> what are the propositional atoms?
+
+
+
+--> express in propositional logic
+
+
+
+////////////////////////////////////////
+
+Example:
+
+You can't enroll for the course if you haven't taken the prerequisite.
+
+
+--> what are the propositional atoms?
+
+
+
+--> translate to propositional logic:
+
+really saying:
+
+
+
+
+
+What is the *contrapositive* of our statement?
+
+
+
+
+
+//////////////////////////////////////////
+∧ ∨ ¬ → 
+//////////////////////////////////////////
+
+Example:
+
+if (x <= 2 || y >= 0) {
+    if (z != 17) {
+        answer = 25;
+    }
+}
+
+Propositional atoms?
+
+
+Translation? (if ... then ...)
+
+
+//////////////////////////////////
+
+Consider these two statements:
+
+p: I am at least 16 years old
+q: I can drive a car
+
+
+1) If I am at least 16 years old, then I can drive a car.
+
+
+
+2) I'm not at least 16 years old or I can drive a car.
+
+
+
+--> are they saying the same thing?
+
+
+
+
+--> could we PROVE it? (equiv1.logika, equiv2.logika)
+
+
+
+
+
+
+
+
+//////////////////////////////////
+
+DeMorgan's Laws.
+
+...DeMorgan has so many laws...
+    these are a couple of them.
+
+
+
+
+if (a == 4 || a == 5) {
+    statements
+}
+
+How could we express the NEGATION
+(i.e., what condition would be true for the "else")?
+
+
+
+
+///
+
+if (a == 4 && b == 5) {
+    statements
+}
+
+How could we express the NEGATION
+(i.e., what condition would be true for the "else")?
+
+
+
+
+
+//////////////////////////////
+
+DeMorgan's laws in propositional logic:
+
+¬(p ∨ q) is equivalent to... 
+
+¬(p ∧ q) is equivalent to... 
+
+
+--> how can we prove the first of DeMorgan's laws?
+
+
+
+
+
+////////////////////////
+
+Another if-statement example.
+
+
+if (Character.isDigit(letter) || num < 10) {
+    statements
+}
+
+--> how would we negate it without using a ! operator?
+    also no extra ()
+
+
+
+///////////////////////
+
+And one more. Negate this one:
+
+if ((y >= 4 && num != 14) || x > 0) {
+    statements
+}
+
+negate it:
+
+
+///////////////////////
+
+in-class quiz
+
+///////////////////////
+
+Summary of important equivalences (≡ means "is equivalent to").
+
+
+¬(p ∧ q) ≡ ¬p ∨ ¬q                  (DeMorgan's laws)
+¬(p ∨ q) ≡ ¬p ∧ ¬q
+
+p → q ≡  ¬q → ¬p                    (contrapositive)
+p → q ≡  ¬p ∨ q                     (can turn implies into an or)
+
+
+associative laws
+
+    (2 + 3) + 5 = ?
+
+    (p ∧ q) ∧ r     vs      ???   
+
+
+    (p → q) → r     vs      ???
+
+    how to show logically equivalent? 
+
+    how to show NOT equivalent? 
+
+
+
+commutative laws 
+
+
+
+--> you may still be asked to demonstrate these with
+    truth tables or prove them with natural deduction (coming soon)
+
+
+//////////////////////////
+
+Summary of equivalence.
+
+How do we prove two statements ARE equivalent?
+
+
+
+How do we prove two statements are NOT equivalent?
+
+
+
+
+//////////////////////////
+
+What is equivalent to:
+
+¬p → q
+
+
+//////////////////////////
+
+Satisfiability.
+
+- definition: 
+
+
+- what kind of statement is satisfiable? what kind is not?
+
+
+- is this satisfiable?
+
+    (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
+
+
+
+
+
+
+to show a statement is satisifiable: 
+
+to show a statement is NOT satisfiable: 
+
+
+////////////////////////////
+
+SAT
+
+straightforward approach to checking all possibilities:
+
+
+
+
+- Aside: P and NP problems
+
+running time programs
+
+can we solve a problem in polynomial time?
+
+can we check a solution to a problem in polynomial time?
+
+
+
+////////////////////////
+
+Next time:
+- how to prove an argument
+
