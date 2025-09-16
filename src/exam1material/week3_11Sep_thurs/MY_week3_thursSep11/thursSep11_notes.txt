@@ -1,0 +1,361 @@
+HW 3 due Tues Sep 16
+
+Exam 1 Thurs Sep 18
+    take full time
+    closed notes
+    mix of multiple choice (like in-class and practice quizzes) 
+        and open-ended (like homework)
+    will post practice material
+    will review on Tuesday
+
+////////////////////////////
+
+Today:
+- Continue natural deduction
+- Review proof syntax, AND rules
+- OR rules in natural deduction
+- Using natural deduction to prove two statements are equivalent
+- Equivalent if-statements
+- If time, rules for implies operator
+
+//////////////////////////
+
+Want to prove a *sequent* (argument) of the form:
+
+    premises ⊢ conclusion
+
+where *premises* is a comma-separated list.
+
+
+In truth tables?
+
+
+
+
+Natural deduction?
+
+
+
+
+//////////////////////////
+
+AND rule summaries.
+
+         P   Q
+AndI : ---------
+         P ∧ Q
+
+
+AndI(lineNum1, lineNum2)
+
+
+
+
+///
+
+          P ∧ Q               P ∧ Q
+AndE1 : ---------   AndE2 : ---------
+           P                    Q
+
+
+
+
+//////////////////////////////////
+
+Reminder: natural deduction proof syntax:
+
+Natural deduction proof syntax.
+
+(premises) ⊢ (conclusion)
+Proof(
+    1 (  claim          ) by Justification,
+    2 (  claim          ) by Justification,
+    ...
+    10 (  conclusion    ) by Justification
+)
+
+
+--> what justifications so far?
+
+
+
+
+/////////////////////////////////
+
+Review examples: and2.sc, and3.sc
+
+/////////////////////////////////
+
+Prove that ∧ is commutative with natural deduction
+
+andCommute.sc
+
+
+
+////////////////////////////////
+
+OR introduction
+
+          P                      Q
+OrI1 : ---------        OrI2 : ---------
+        P ∨ Q                   P ∨ Q
+
+
+
+
+Syntax:
+
+OrI1(lineWithLeft)
+OrI2(lineWithRight)
+
+///////////////////////////////////////////
+
+Example:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+
+)
+
+Or, could have done:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+    
+)
+
+
+
+
+
+///////////////////////////////////////////
+
+OR elimination
+
+
+Idea:
+- If an OR statement is true, what do we know?
+
+p ∨ q
+
+
+
+
+
+- What if we can reach the same conclusion no matter which side
+    of the OR is true?
+
+
+
+
+
+
+Rule summary:
+
+
+               SubProof(          SubProof(
+                  Assume ( P ),      Assume ( Q ),
+      P ∨ Q       ...                ...
+                  R                  R
+               ),                  ),
+OrE : ---------------------------------------------
+                         R
+
+
+How does this relate to programming?
+
+
+if (condition) {
+    some result
+}
+else {
+    some result
+}
+
+--> what do we know is true here?
+
+
+
+
+
+
+///////////////////////////////
+
+Syntax for using OrE:
+
+(some line numbers are removed for ease of reading)
+
+a ( P ∨ Q   )       by Justification,
+b SubProof(
+    Assume(P),
+    ...
+    ( R   )         by Justification
+),
+c SubProof(
+    Assume(Q),
+    ...
+    ( R   )         by Justification
+),
+d ( R   )           by OrE(a, b, c)
+
+
+////////////////////////////////
+
+Example: prove that OR is commutative (or1.sc)
+
+p ∨ q       vs      q ∨ p
+
+
+////////////////////////////////
+
+(in-class quiz)
+
+////////////////////////////////
+
+Do you think we could prove:
+
+p ∨ q ⊢ p ∧ q
+Proof(
+    1 ( p ∨ q) by Premise,
+    
+
+)
+
+
+
+What is the only way to prove an argument is invalid?
+
+
+////////////////////////////////
+
+Order of operations:
+
+p ∨ q ∨ r
+
+with parentheses?
+
+--> If I used OrE, what would be the two assumes in
+    the subproofs?
+
+SubProof(
+    Assume ( ??? ),
+    ...
+),
+SubProof(
+    Assume ( ??? )
+)
+
+
+////////////////////////////////
+
+Proving equivalence.
+
+--> how do we prove two statements are equal in truth tables?
+
+two truth tables, one for each statement
+showed that for each input (truth assignment), both statements had the same output
+
+
+--> how do we do it with proofs?
+
+premise ⊢ conclusion
+
+
+
+
+
+
+How would we write these arguments in words? 
+
+
+--> what does this tell you you could do instead of proving equivalence
+    with two truth tables?
+
+
+
+
+
+////////////////////////////////
+
+Example: prove one of the distributive laws
+
+p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
+
+
+(orDist1.sc and orDist2.sc)
+
+////////////////////////////////
+
+Equivalence in if-statements.
+
+Consider this if-statement:
+
+if (extraCredit == true || grade >= 80) {
+    if (extraCredit == true || grade <= 90) {
+        //do stuff
+    }
+}
+
+--> translate to propositional logic
+
+
+
+--> what is an equivalent, simpler if-statement?
+
+
+///////////////////////////////////
+
+Implies-elimination, ImplyE
+
+          P, P → Q
+ImplyE: -----------
+            Q
+
+
+
+(This rule is also called "modus ponens")
+
+
+
+Example:
+
+//Suppose we know x > 5. What can we conclude?
+
+if (x > 5) {
+    y = 17;
+}
+
+
+
+///////////////////////////////
+
+Syntax for using ImplyE:
+
+a ( P       )   by Justification,
+b ( P → Q   )   by Justification,
+c ( Q       )   by ImplyE(b, a)
+
+
+What you type for → 
+    __>:
+
+////////////////////////////////////////
+
+Example (imply1.logika):
+
+(p ∧ q) → r,  p → q,  p  ⊢ r
+
+
+
+Example (imply2.logika):
+
+p → r,  q → r,  p ∨ q  ⊢ r
+
+
+////////////////////////////////////////
+
+Next time:
+- Finish rules for implies operator (these WILL be on exam 1)
+- Review for exam

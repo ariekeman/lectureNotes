@@ -1,0 +1,218 @@
+HW 3 due tonight - don't add parentheses
+
+
+Problem 6:
+
+//(p ∨ q) ∨ r
+//(r ∨ q) ∨ p
+p ∨ q ∨ r |- r ∨ q ∨ p
+
+vs
+
+p ∨ (q ∨ r)  
+
+
+using: (p ∨ q) ∨ r
+OrE subproofs:
+
+1) assume p ∨ q
+    nest OrE subproof
+    1) assume P
+        goal: r ∨ q ∨ p
+
+    2) assume q
+        goal: r ∨ q ∨ p
+
+goal: r ∨ q ∨ p
+
+2) assume r
+
+goal: r ∨ q ∨ p
+
+/////////////
+
+no new homework this week
+
+Exam 1 is Thursday, September 18
+
+////////////////////////////////
+
+Today:
+- Proof of distributive law
+- Implies elimination
+- Exam 1 review
+
+////////////////////////////////
+
+Proving two statements are equivalent with deduction?
+
+
+statement1
+statement2
+
+Proof 1: statement1 |- statement2
+
+
+Proof 2: statement2 |- statement1
+
+////////////////////////////////
+
+Example: prove one of the distributive laws
+
+p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
+
+
+(orDist1.sc and orDist2.sc)
+
+
+
+////////////////////////////////
+
+if (extraCredit == true || grade < 90) {
+    if (extraCredit == true || grade >= 80) {
+        //do stuff
+    }
+}
+
+if (extraCredit == true || (grade >= 80 && grade < 90))
+
+
+--> how does the distributive law tell us we can rewrite 
+    this?
+
+
+////////////////////////////////
+
+Implies-elimination, ImplyE
+
+          P, P → Q
+ImplyE: -----------
+            Q
+
+
+
+(This rule is also called "modus ponens")
+
+Example:
+
+//Suppose we know x > 5. What can we conclude?
+
+if (x > 5) {
+    y = 17;
+}
+
+///////////////////////////////
+
+Syntax for using ImplyE:
+
+a ( P       )   by Justification,
+b ( P → Q   )   by Justification,
+c ( Q       )   by ImplyE(b, a)
+
+__>:
+
+////////////////////////////////////////
+
+Example (imply1.sc):
+
+(p ∧ q) → r,  p → q,  p  ⊢ r
+
+
+
+Example (imply2.logika):
+
+p → r,  q → r,  p ∨ q  ⊢ r
+
+
+///////////////////////////////////////
+
+(in-class quiz)
+
+
+////////////////////////////////////////
+
+(This ends the new material for Exam 1)
+
+(We will do Implies-introduction after Exam 1)
+
+////////////////////////////////////////
+
+Exam 1 review.
+
+Covers everything we've done up to this point 
+(including today).
+
+
+See Canvas announcement for list of topics.
+
+
+
+
+How to prove two propositional logic statements are 
+equivalent?
+
+    Approach 1: truth tables (2)
+        for each truth assignment, both statements have the same 
+        output
+
+    Approach 2: deduction (2)
+        statement1 |- statement2
+        statement2 |- statement1
+
+
+
+
+How to prove propositional logic statements are 
+NOT equivalent?
+
+find ONE counterexample (a truth assignment) where the
+two statements have different output
+
+
+
+
+What is satisfiability? 
+    there exists at least one truth assignment that makes
+    the statement output true
+
+    ARE satisfiable: contingent, tautology
+    NOT satisfiable: contradictory
+
+
+    prove satisfiability: find ONE truth assignment
+    prove NOT satisfiable: full truth table, show contradictory
+
+
+
+- Determining whether an argument is valid or invalid
+    (what is an argument?)
+    premises, conclusion
+
+    valid: every time all the premises are true then the conclusion
+    is also true
+
+    how prove valid?
+        1) make a "combined" truth table, make sure every truth
+        assignment that makes all premises true also makes the 
+        conclusion true
+
+        2) deduction
+
+    how prove invalid?
+        find one truth assignment that makes all premises true
+        but the conclusion false
+
+
+/////////////////////////////////////////
+
+Closed notes/computers.
+
+
+Mix of multiple choice (like quizzes) and open-ended (like homework)
+
+Some problems will ask for a proof or explanation --
+    read carefully!
+
+////////////////////////////////////////
+
+See practice problems.

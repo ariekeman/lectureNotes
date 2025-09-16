@@ -5,17 +5,15 @@ import org.sireum.justification._
 import org.sireum.justification.natded.prop._
 
 //Prove the sequent:
-//p ∧ q ∧ r ⊢ q
+//p, q, r ⊢ r ∧ (q ∧ p)
 
 
-@pure def and3(p: B, q: B, r: B): Unit = {
+@pure def and2(p: B, q: B, r: B): Unit = {
   Deduce(
-    (p & q & r) |- (q)
+    (p, q, r) |- (r & (q & p))
       Proof(
         //PROOF GOES HERE
-        1 ( p & q & r ) by Premise,
-        2 ( p & q ) by AndE1(1),
-        3 ( q ) by AndE2(2)
+        
       )
   )
 }
