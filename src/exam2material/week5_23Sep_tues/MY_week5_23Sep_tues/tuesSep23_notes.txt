@@ -1,0 +1,190 @@
+Exam 1 discussion.
+
+Average: 76/100
+High: 99/100 (2 students)
+
+A (90-100): 25 students (great!!)
+B (80-89): 19 students
+C (70-79): 10 students
+D (60-69): 11 students
+F (below 60): 13 students
+
+
+
+HW 4 will be posted after class, due Tuesday, September 30
+
+--> this is one of the more challenging assignments of the course
+
+/////////////////////
+
+"ill-formed program" error
+
+What does it mean?
+
+How to get more details?
+
+/////////////////////
+
+Today:
+- Continue implies rules
+- Begin negation rules
+
+/////////////////////
+
+
+Reminder: implies-elimination, ImplyE
+
+          P,P → Q
+ImplyE: -----------
+            Q
+
+
+////
+
+Implies-introduction, ImplyI
+
+        SubProof(
+            Assume( P ),
+            ...
+            Q
+        )
+ImplyI: -----------
+          P → Q
+
+
+
+Syntax for using ImplyI:
+
+a SubProof(
+    b Assume( P ),
+    ...
+    c ( Q ) by Justification
+),
+d ( P → Q ) by ImplyI(a)
+
+
+//////////////////////////
+
+Implies symbol.
+
+Typing a → in Logika for natural deduction:
+
+    __>:
+
+(two underscores, >, :)
+
+//////////////////////////
+
+If you are trying to prove an implies statement, what should you
+always do?
+
+
+ImplyI examples:
+impI1.sc, impI2.sc, imp3.sc.
+
+
+//////////////////////////
+
+Strategy for proving →
+
+
+
+/////////////////////////
+
+(in-class quiz)
+
+/////////////////////////
+
+Negation rules in propositional logic (we'll start with two of them).
+
+Negation-elimination:
+
+        P    ¬P
+NegE: ----------
+          F
+
+
+F here means contradiction
+
+
+Syntax:
+
+a ( p  ) by Justification,
+b ( ¬p ) by Justification,
+c ( F  ) by NegE(a, b)
+
+
+///
+
+Negation-introduction:
+
+        SubProof(
+            Assume( P ),
+          ... F
+        )
+NegI: ------------------
+              ¬P
+
+
+Syntax:
+
+a SubProof(
+    b Assume( p ),
+    ...
+    c ( F ) by Justification
+),
+d ( ¬p ) by NegI(a)
+
+///////////////////////////
+
+Pattern: if you are trying to prove a NOT statement
+
+
+Examples:
+
+(p → q, ¬q)  ⊢ ( ¬p )
+Proof(
+    1 ( p → q   ) by Premise,
+    2 ( ¬q      ) by Premise,
+    
+    
+)
+
+
+( p ) ⊢ ( ¬¬p )
+Proof(
+    1 ( p   ) by Premise,
+
+)
+
+
+//////////////////////////
+
+Other examples in separate files:
+
+
+(not1.sc)
+p → ¬q ⊢ ¬(p ∧ q)
+
+///////////////////
+
+
+(not2.sc)
+¬p ∧ ¬q ⊢ ¬(p ∨ q) (what is this? you'll prove the reverse
+                    on your HW)
+
+
+
+//////////////////////////
+
+(not3.sc)
+p → q ⊢ ¬q → ¬p (what is this?)
+
+/////////////////////////
+
+Next time:
+
+- remaining negation rules
+- applications to conditional statements
+- natural deduction proof strategies
+- soundness and completeness
