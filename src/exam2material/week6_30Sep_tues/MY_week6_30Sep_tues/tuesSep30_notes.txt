@@ -1,0 +1,344 @@
+HW 4 due tonight
+
+HW 5 will be posted after class
+
+/////////////////////////
+
+Today:
+
+- Discuss HW 4 problems 6 and 7
+- Proving theorems
+- Soundness and completeness
+- Begin sets
+
+/////////////////////////
+
+HW 4 problem 6
+
+p → q   equivalent to   ¬p ∨ q
+
+
+p → q  ⊢  ¬p ∨ q
+
+
+¬p ∨ q   ⊢  p → q
+
+
+/////////////////////////
+
+HW 4 problem 7
+
+¬(p → q)    equivalent to   p ∧ ¬q
+
+
+¬(p → q)  ⊢  p ∧ ¬q
+
+
+p ∧ ¬q   ⊢   ¬(p → q)
+
+
+
+/////////////////////////
+
+How do we approach proofs?
+
+1. Write out all the premises
+2. Extract all information from premises 
+3. Look at what you are trying to prove (what do we look for in goal/conclusion?)
+
+    ∧ - 
+
+    ∨ - 
+
+    → - 
+
+    ¬(something) - 
+
+    just a propositional atom? 
+
+
+After each claim - 
+
+
+
+Inside a subproof - 
+
+
+
+Doesn't fit a pattern or doesn't work out from above?
+
+
+
+
+--> when do we open a subproof?
+
+
+
+
+
+--> can we assume anything in a subproof? 
+
+
+
+//////////////////////////////////
+
+Bigger example: big.sc
+
+//////////////////////////////////
+
+A THEOREM in propositional logic is something that is
+always true with no need for premises. For example:
+
+
+Law of the excluded middle. (LEM)
+
+p ∨ ¬p
+
+
+
+What would a theorem be in a truth table?
+    tautology
+
+
+
+Prove LEM (lem.sc):
+
+⊢ ( p ∨ ¬p )               //lem.sc
+
+
+
+⊢ (theorem that you are trying to prove)
+
+/////////////////////////////////
+
+SOUNDNESS and COMPLETENESS of natural deduction in
+    propositional logic
+
+    "provable": prove using natural deduction
+    "true": demonstrate an argument with truth tables
+
+
+SOUNDNESS: everything that is provable is actually true
+
+p ∧ q 
+--------
+p
+
+
+COMPLETENESS: everything that is true is provable
+
+
+
+
+
+--> what would it mean if a proof system was unsound?
+
+
+
+
+--> what would it mean if a proof system was incomplete?
+
+
+
+
+Propositional logic is both SOUND and COMPLETE.
+
+
+
+Using natural deduction to prove the sequent:
+    P1, P2, ..., Pn ⊢ q
+
+
+Is equivalent to using truth tables to show that whenever
+    P1, P2, ..., Pn
+are true, then q is also true
+
+//////////////////////////////////////
+
+(in-class quiz)
+
+//////////////////////////////////////
+
+Sets.
+
+A set is an unordered collection of elements
+
+
+{1,1,3,5,7} = {1,3,5,7} = {7,3,1,5}
+
+
+
+∈: is in, exists in
+
+    x ∈ A: x exists in set A, x is in A
+
+    x ∉ A: x does not exist in set A, x is not in A
+
+
+
+Example: A = {1,4,7,11,20}
+
+    1 ? 
+    2 ?
+
+
+
+- Common sets in math:
+
+    ℕ: 
+    ℤ: 
+    ℚ: 
+    ℝ: 
+    ℂ: 
+    ∅: 
+
+ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
+
+////////////////////////////////////
+
+Set builder notation.
+
+: means, where, such that
+| means the same thing
+
+{variable : conditions}
+
+
+{x: x ∈ ℕ, 5 ≤ x ≤ 10}
+
+
+
+{k : k is a letter in "abracadabra"}
+
+
+
+
+{x : x = 2k,  k ∈ ℕ}
+
+
+
+
+{n : n = k^2, k ∈ Z}
+
+
+
+
+{n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
+
+
+
+//////////////////////////////////////
+
+Describe these sets in set builder notation
+
+
+{5,10,15}
+
+
+
+{CIS 115, CIS 200, CIS 300, CIS 301}
+
+
+
+{2,4,8,16,32}
+
+
+///////////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+///////////////////////////////////////
+
+Set union, ⋃
+
+The union of the sets A and B, written A ⋃ B, is the set
+of all elements....?
+
+
+How could we express in set builder notation?
+
+A ⋃ B =
+
+
+//////////////////////////////////////
+⋃ ⋂ ⋁ ⋀ ∈ ∉
+///////////////////////////////////////
+
+Set intersection, ⋂
+
+The intersection of the sets A and B, written A ⋂ B, is the set
+of all elements that are...?
+
+
+How could we express in set builder notation?
+
+A ⋂ B =
+
+///////////////////////////////////////
+
+Set difference,
+
+/ or \ (means the same thing)
+
+The difference between the sets A and B, written A - B, is the set
+of all elements...?
+
+
+How could we express in set builder notation?
+
+A - B =
+
+//////////////////////////////////////
+⋃ ⋂ ⋁ ⋀ ∈ ∉
+///////////////////////////////////////
+
+A = {1,3,7,10,11,12}
+
+B = {2,3,4,5,6,7}
+
+
+Find:
+
+A ⋃ B =
+
+A ⋂ B =
+
+A - B =
+
+B - A =
+
+
+//////////////////
+
+Subset - A is a subset of B, written A ⊆ B, if
+    all elements in A are also in B.
+
+(We say A ⊂ B if A is a subset of B but A ≠ B.)
+
+
+
+
+Example:
+
+A = {1,3,4}
+
+B = {1,3,5,8}
+
+--> is A a subset of B?
+
+
+
+A = {8,1,3}
+
+B = {1,3,5,8}
+
+--> is A a subset of B?
+
+
+
+//////////////////////////////////
+
+Next time:
+- quantifiers
+- proofs with sets
+- limitations of propositional logic
+- intro to predicate logic
