@@ -1,0 +1,441 @@
+HW 5 due Tuesday, October 7
+
+--> check link format
+
+(this assignment does NOT use the Logika proof checker)
+
+///////////////////////////////
+
+How to get more practice?
+
+///////////////////////////////
+
+Today:
+- set builder notation
+- set operations + Venn diagrams
+- quantifiers
+- limitations of propositional logic
+- begin predicate logic
+
+
+//////////////////////////////
+
+Reminder: set builder notation
+
+{x : conditions}
+
+
+{x : x ∈ ℤ, x^2 <= 25}
+
+
+
+//////////////////////////////
+
+Describe these sets in set builder notation
+
+
+{5,10,15}
+
+
+
+
+{CIS 115, CIS 200, CIS 300, CIS 301}
+
+
+
+
+
+{2,4,8,16,32}
+
+
+
+
+///////////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+///////////////////////////////////////
+
+Set union, ⋃
+
+The union of the sets A and B, written A ⋃ B, is the set
+of all elements....that are in either A or B (or both),
+
+
+How could we express in set builder notation?
+
+A ⋃ B = ?
+
+
+Show as a Venn diagram.
+
+//////////////////////////////////////
+⋃ ⋂ ⋁ ⋀ ∈ ∉
+///////////////////////////////////////
+
+Set intersection, ⋂
+
+The intersection of the sets A and B, written A ⋂ B, is the set
+of all elements that are...in both A and B
+
+
+How could we express in set builder notation?
+
+A ⋂ B = ?
+
+
+Show as a Venn diagram.
+
+///////////////////////////////////////
+
+Set difference, -
+
+/ or \ (means the same thing)
+
+The difference between the sets A and B, written A - B, 
+    is the set of all elements...that are in A but not in B
+
+
+How could we express in set builder notation?
+
+A - B = ?
+
+
+Show as a Venn diagram.
+
+//////////////////////////////////////
+⋃ ⋂ ⋁ ⋀ ∈ ∉
+///////////////////////////////////////
+
+A = {1,3,7,10,11,12}
+B = {2,3,4,5,6,7}
+
+Find:
+
+A ⋃ B = 
+A ⋂ B = 
+A - B = 
+B - A = 
+
+
+/////////////////
+
+Draw a Venn diagram for A ⋃ (B ⋂ C)
+
+
+Draw a Venn diagram for (A ⋂ B) − C
+
+
+Draw Venn diagrams for A ⋃ (B ⋂ C) and (A ⋃ B) ⋂ (A ⋃ C)
+
+///////////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+///////////////////////////////////////
+
+How does A - B relate to A ⋂ B?
+
+
+
+
+What do we know if A ⋂ B = A ⋃ B?
+
+
+
+
+
+What do we know if A - B = A?
+
+
+
+
+
+
+What do we know if A - B = B - A?
+
+
+
+//////////////////
+
+Subset - A is a subset of B, written A ⊆ B, if
+    all elements in A are also in B.
+
+(We say A ⊂ B if A is a subset of B but A ≠ B.)
+
+
+
+
+Example:
+
+A = {1,3,4}
+
+B = {1,3,5,8}
+
+--> is A a subset of B?
+
+
+
+
+
+
+A = {8,1,3}
+
+B = {1,3,5,8}
+
+--> is A a subset of B?
+
+
+//////////////////////////////////
+
+Quantifiers - helps describe all or some elements in a set
+
+    ∀ - universal quantifier, read as "for all"
+
+    ∃ - existential quantifier, read as "there exists"
+
+
+
+Can we define that set A is a subset of set B using quantifiers?
+
+A ⊆ B means ...
+
+
+
+
+
+How could we define that set A equals set B using quantifiers?
+
+
+
+
+//////////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+//////////////////////////////////////
+
+(we will come back to sets in a couple of weeks to
+do proofs with them)
+
+//////////////////////////////////////
+
+(in-class quiz)
+
+//////////////////////////////////////
+
+A predicate is a boolean function that represents whether
+    an individual has a particular property
+
+
+Set builder notation: {x : P(x)}
+
+where P(x) is a statement (a predicate) involving x
+
+
+
+
+The set is all such x where P(x) is true
+
+//////////////////////////////////////
+
+Example:
+
+A = {x : x ∈ ℕ ⋀ x^2 ≥ 25 }
+
+
+
+
+P(x) = x ∈ ℕ ⋀ x^2 ≥ 25
+
+What are these saying? Are they true?
+
+P(2) = 
+P(-6) = 
+P(10) = 
+
+Is 2 in A? Is -6? Is 10?
+
+
+
+
+//////////////////////////////////////
+
+Limitations of propositional logic:
+
+Premises:
+    All humans are mortal.
+    Socrates is human.
+
+Conclusion
+    Therefore, Socrates is mortal.
+
+
+
+How would we prove this in propositional logic?
+
+What propositional atoms?
+
+p: all humans are mortal
+q: Socrates is human
+r: Socrates is mortal
+
+
+p, q ⊢ r
+
+
+
+///////////////
+
+Predicate logic:
+
+Instead of propositions, we will make claims about
+individuals in a domain (a set)
+
+
+These claims will involve predicates and quantifiers
+
+
+
+//////////////////
+
+More with predicates.
+
+Example:
+
+    Domain: {x : x is a student at K-State}
+    C(x): whether x is in CIS 301
+
+    Bob is taking: CIS 300, ECE 241, MATH 221, ENGL 200
+    Jill is taking: CIS 301, MATH 510, HIST 251, MUSIC 170
+
+
+    What is the value of C(Bob)? 
+
+    What is the value of C(Jill)? 
+
+    What is the value of C(Bob) ⋀ C(Jill)? 
+
+////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+////////////////
+
+Quantifiers and predicates
+
+Domain: {strawberry, blueberry, banana, orange, 
+            grapefruit, apple}
+
+Berry(x): x is a berry
+Citrus(x): x is a citrus fruit
+Peel(x): x has a peel (that needs to be removed before eating)
+Seeds(x): x contains inedible seeds
+Bite(x): x is bite-sized
+
+Berry(strawberry) -  true
+Citrus(strawberry) - false
+Peel(strawberry) - false
+Seeds(strawberry) - false
+Bite(strawberry) - true
+
+
+
+Write each statement in English. Is each one true or false?
+
+∀ x (Berry(x))
+
+
+
+    --> how could we express the same statement in our domain
+    WITHOUT a quantifier?
+
+
+
+
+
+
+
+///
+
+∃ x (Citrus(x) ⋀ Seeds(x))
+
+    --> how could we express the same statement in our domain
+    WITHOUT a quantifier?
+
+///
+
+∀ x (Berry(x) ⋀ Bite(x))
+
+
+///
+
+∀ x (Berry(x) → Bite(x))
+
+
+
+
+///
+
+¬(∀ x Peel(x))
+
+
+
+
+Can you think of another way to write the same thing?
+
+
+
+
+///
+
+¬(∀ x (Seeds(x) → Citrus(x)))
+
+
+Can you think of another way to write the same thing?
+
+
+
+///
+
+∀ x ¬Peel(x)
+
+
+
+
+///
+
+¬(∃ x Berry(x))
+
+
+
+///
+
+¬(∃ x (Peel(x) ⋀ Citrus(x)))
+
+
+
+
+///
+
+∃ x ¬(Peel(x) ⋀ Seeds(x))
+
+
+
+
+///
+
+∃ x (Citrus(x) → Berry(x))
+
+
+
+
+/////////////////
+
+For all: usually connect with...
+
+There exists: usually connect with...
+
+/////////////////
+
+Next time:
+- quantifiers with sets of numbers
+- translations involving multiple variables/quantifiers
+- DeMorgan's laws for quantifiers
+- begin natural deduction in predicate logic

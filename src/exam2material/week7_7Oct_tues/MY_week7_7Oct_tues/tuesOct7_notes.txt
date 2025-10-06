@@ -1,0 +1,454 @@
+HW 5 due tonight
+
+HW 6 will be posted after class, due next Tuesday
+    (check link!)
+
+///////////////////////
+
+Today:
+
+- More with evaluating predicate logic statements
+- Predicate logic translations with sets of numbers
+- DeMorgan's laws for quantifiers
+- Introduction to rules for quantifiers in natural deduction
+
+
+////////////////////////
+
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+Predicates: 
+    HasChocolate(x)
+    IsBrown(x)
+    ContainsPeanuts(x)
+
+///
+
+Statements:
+
+
+HasChocolate(PayDay) V ContainsPeanuts(KitKat)
+
+    translation? 
+    true or false?
+
+
+///
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+¬(∀ x (HasChocolate(x) → ContainsPeanuts(x)))
+
+    translation? 
+    true or false? 
+
+
+
+///
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+∀ x (¬ContainsPeanuts(x))
+
+    translation? 
+    true or false? 
+
+
+///
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+¬(∃ x IsBrown(x))
+
+    translation? 
+    true or false? 
+
+///
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+∃ x ¬IsBrown(x)
+
+    translation? 
+    true or false? 
+
+///
+Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
+
+∃ x (HasChocolate(x) → ContainsPeanuts(x))
+
+    translation?
+    true or false? 
+
+
+
+////////////////////////
+
+For all: usually connect with...→
+
+
+
+There exists: usually connect with...⋀
+
+
+
+/////////////////
+
+Evaluating predicate logic statements
+
+1) ∀ x P(x)
+    true when: 
+    false when: 
+
+2) ∃ x P(x)
+    true when: 
+    false when: 
+
+3) ¬(∀ x P(x))
+    true when: 
+    false when: 
+
+4) ¬(∃ x P(x))
+    true when: 
+    false when: 
+
+5) ∀ x ¬P(x)
+    true when: 
+    false when: 
+
+6) ∃ x ¬P(x)
+    true when: 
+    false when: 
+
+
+/////////////////
+
+Domain: ℤ (the integers)
+
+
+What do these mean in English? Are they true?
+
+
+∀ n ∃ m (n^2 < m)
+
+The square of every integer is less than some other integer.
+true
+for each n, pick m = n^2 + 1, and m > n^2
+
+
+
+
+∀ x ∃ y (x == y^2)
+    All integers equal the square of some other integer
+    All integers are perfect squares
+
+    false. x = 7, no integer squared equals 7.
+
+
+∀ n ∃ m (n^2 == m)
+    The square of all integers is another integer
+
+    True - when I multiply any two integers I always get another integer
+
+
+∃ m ∀ n (n^2 == m)
+    There is a number (the SAME number in all cases) that
+        equals the square of every integer
+
+    False - obviously no number is the square of everything
+
+/////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////
+
+
+Write the following in predicate logic:
+----------------------------------------
+
+The sum of two negative integers is negative
+
+Domain: ℤ
+
+∀ x ∀ y (x < 0 ⋀ y < 0 → x + y < 0)
+
+    true - the sum of two negative numbers becomes more negative,
+        so it is < 0
+
+
+
+The difference of two positive integers is
+not necessarily positive
+
+∃ x ∃ y (x > 0 ⋀ y > 0 ⋀ x-y <= 0)
+
+
+not all (....)
+¬(∀ x ∀ y (x > 0 ⋀ y > 0 → x-y > 0))
+
+true
+x = 5
+y = 10
+x - y = -5, which is not positive
+
+/////////////////////////
+
+In-class quiz
+
+
+/////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////
+
+Equivalence: DeMorgan's law (part 1).
+
+¬(∃ x P(x))         ∀ x (¬P(x))
+
+
+suppose our domain is k1 through kn
+
+
+¬(∃ x P(x)) is  equivalent to...¬(P(k1) V P(k2) V ... V P(kn))
+¬P(k1) ^ ¬P(k2) ^ ... ^ ¬Pk(n)
+ ∀ x (¬P(x))
+
+
+
+/////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////
+
+Equivalence: DeMorgan's law (part 2).
+
+¬(∀ x P(x))       ∃ x (¬P(x))
+
+
+suppose our domain is k1 through kn
+
+
+
+¬(∀ x P(x)) is equivalent to...
+
+
+
+
+//////////////////////////////////////
+
+Apply DeMorgan's laws: example
+
+
+1) Express the statement in predicate logic
+
+2) Negate the statement so no negation is outside a quantifier
+or outside a statement with logical connectives
+
+    Reminder:
+        p → q is equivalent to: ¬p ⋁ q 
+        ¬(p ⋀ q) is equivalent to: ¬p ⋁ ¬q
+        ¬(p ⋁ q) is equivalent to: ¬p ⋀ ¬q
+
+///
+Domain: students
+    in5th(x): student x is in 5th grade
+    wonPrize(x): student x won a prize
+    friendsWith(x, y): student x is friends with student y
+
+///
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////
+
+All prize-winners were 5th graders
+
+Translation: ∀ x (wonPrize(x) → in5th(x))
+Negation: ¬(∀ x (wonPrize(x) → in5th(x)))
+    ∃ x (¬(wonPrize(x) → in5th(x)))
+    ∃ x (¬(¬wonPrize(x) ⋁ in5th(x)))
+    ∃ x (wonPrize(x) ⋀ ¬in5th(x))) <--- finished negation
+
+Translation of negation: There is a student who won a prize
+                        and isn't in 5th grad
+
+///
+
+A 5th grade prize winner isn't friends with anyone
+
+two quantifiers
+translation: ∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y))
+
+negate: ¬(∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y)))
+∀ x ∃ y ¬((in5th(x) ⋀ wonPrize(x)) ⋀ ¬friendsWith(x, y))
+∀ x ∃ y (¬(in5th(x) ⋀ wonPrize(x)) ⋁ friendsWith(x, y))
+∀ x ∃ y (¬(in5th(x) ⋀ wonPrize(x)) ⋁ friendsWith(x, y))
+
+Final negation:
+∀ x ∃ y ((in5th(x) ⋀ wonPrize(x)) → friendsWith(x, y))
+
+translation of negation: All 5th grade prize winners have someone 
+                    that they are friends with
+
+////////////////////////////////////
+
+Arguments in predicate logic
+
+Set of premises
+Conclusion
+
+Argument is VALID: regardless of domain,
+    whenever all the premises are true,
+    then the conclusion is also true
+
+Argument is INVALID: we can find a domain where
+    all the premises are true but the conclusion is false
+
+
+
+Examples -- are the following arguments valid?
+
+///
+
+Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
+Conclusion: ∃ x Q(x)
+
+Valid or not? 
+
+
+///
+
+Premises: ∀ x P(x) : everyone in my domain is P-ish
+Conclusion: ∃ x P(x): there is someone in domain who is P-ish
+
+Valid or not? 
+
+/////////////////////////////////
+
+Proofs in predicate logic.
+
+- want to formalize the kind of reasoning from above
+
+- want valid inference rules that do NOT depend on the domain
+    (there is no way to do the equivalent of a
+    "truth table proof" in predicate logic...
+        there are infinitely many domains!)
+
+- add inference rules on quantifiers to our deduction rules
+
+
+////////////////////////////////
+
+Writing predicate logic statements in Logika
+
+In Logika, ∀ x P(x) is written as:
+
+    ∀ ((x: T) => P(x))
+
+
+
+In Logika, ∃ x P(x) is written as:
+
+    ∃ ((x: T) => P(x))
+
+
+
+--> what is "T"?
+
+
+Settings->Command Palette->Tasks (run task)->Sireum slang template->
+    Insert a for-all quantification
+
+This will insert the statement:
+
+∀((ID: TYPE) => CLAIM)
+
+
+
+(similarly, insert a there exists statement)
+
+
+You can also edit the keyboard shortcuts for these templates
+
+////////////////////////////////
+
+When you have homework or we do examples, the proof files
+will look like this:
+
+// #Sireum #Logika
+
+import org.sireum._
+import org.sireum.justification._
+import org.sireum.justification.natded.prop._
+import org.sireum.justification.natded.pred._
+
+@pure def ProofName[T](pred1: T => B @pure, pred2: T => B @pure,
+                ..., indiv1: T, indiv2: T, ...): Unit = {
+    Deduce(
+        (comma-separated list of premises)
+            ⊢
+        (conclusion)
+
+        Proof(
+            //the actual proof steps go here
+        )
+    )
+}
+
+///////////////////////////////
+
+For-all elimination (∀e):
+
+           ∀ ((x: T) => P(x))
+AllE[T]:  ---------------------
+                   P(v)
+
+//where v is a particular individual in the domain
+//(i.e, v has type T)
+
+
+Idea:
+
+- if we know that a statement is true for ALL individuals in
+our domain
+
+
+...then what would we know about a specific individual
+in that domain?
+
+///////////////////////////////
+
+Syntax:
+
+(
+    ∀ ((x: T) => Human(x))
+)
+⊢
+( Human(Socrates) )
+
+Proof(
+    1 ( ∀ ((x: T) => Human(x)) )    by Premise,
+    2 Human(Socrates)               by ???
+)
+
+Note: This assumes "Socrates" and "Human" were both parameters
+to our proof function:
+
+
+@pure def Example[T](Human: T => B @pure, Socrates: T)
+
+
+
+///////////////////////////////
+
+Example (all1.sc)
+
+
+∀ x (inCIS301(x) → takenCIS200(x)), inCIS301(bob) ⊢ takenCIS200(bob)
+
+
+//////////////////////////////
+
+Next time:
+- continue with for all quantifier example
+- proofs and equivalences with the existential quantifier
+
