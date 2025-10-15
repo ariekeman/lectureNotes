@@ -1,0 +1,146 @@
+HW 6 is due tonight
+
+Exam 2 is Thursday, October 16 during class
+
+Jacob is having exam review today, 4-5:30 in DUE 1118
+
+No new homework this week
+
+///////////////////////////////
+
+Today:
+- A little more with AllE, AllI
+- ExistsI
+- Review for Exam 2
+
+///////////////////////
+
+Reminder:
+
+AllE - use when we have a specific individual, can plug into 
+    any for all statement
+
+AllI - subproof (starts with "Let"), choosing random individual
+    end subproof with a statement about our random individual
+    right after subproof ends, claim same statement about All
+    individuals
+
+////////////////////////
+
+Bigger example: allBig.sc
+
+////////////////////////
+
+Idea behind exists-introduction (ExistsI):
+
+If we find ONE individual in a domain where a statement holds
+
+...then THERE EXISTS an individual in the domain where the
+    statement holds
+
+
+
+///
+
+Rule definition:
+
+                  P(v)
+ExistsI[T]: ---------------------
+              ∃ ((x: T) => P(x) )
+
+//v is some individual of type T
+
+
+//////////////////////////////////////////
+
+Rule syntax:
+
+
+( Human(Socrates) ) ⊢ ( ∃ ((x: T) => Human(x) ))
+Proof(
+    1 ( Human(Socrates) ) by Premise,
+    2 ( ∃ ((x: T) => Human(x)) )  by ExistsI[T](1)
+)
+
+(assume "Socrates" was a parameter of type T)
+
+/////////////////////////////////////////
+
+Bigger example (exists1.sc):
+
+(
+    ∀ ((x: T) => (Human(x) → Mortal(x))),
+    Human(Socrates)
+)
+⊢ ( ∃ ((x: T) => Mortal(x) ))
+
+
+/////////////////////////////
+
+Putting things together: bothQuant.sc
+
+///////////////////////
+
+in-class quiz
+
+///////////////////////
+
+Exam 2:
+- Thursday, October 16 9:30-10:45
+- Closed notes, closed computers
+
+- Natural deduction proofs in propositional logic, esp. with:
+    ImplyI, NegE, NegI, BottomE, PbC
+--> still expected to be familiar with all other rules
+--> may be more emphasis here than previous semesters,
+    as more of these rules are on Exam 2 than in the past
+
+Sets, including:
+    - set builder notation
+    - N (natural, all positive, starts at 1), Z (integers),
+            R (reals - includes whole numbers, fractions,
+            numbers with decimals)
+    - union, intersection, difference (-), subsets
+    - Venn diagrams
+    - general reasoning about sets
+
+Predicate logic statements, including:
+    - quantifiers
+    - interpreting predicate logic statements in English
+    - translating English statements to predicate logic
+    - evaluating predicate logic statements in a domain
+    - working with predicate logic statements involving sets
+        of numbers
+    - DeMorgan's laws
+    - negating predicate logic statements
+
+- Natural deduction proofs in predicate logic
+    using: AllE, AllI, ExistsI
+
+- Using natural deduction to prove two statements are equivalent
+
+
+
+--> what about predicate logic proof syntax?
+    don't care about getting all the ()
+    don't care about putting : T or [T]
+    in AllI subproof, be sure to name your random individual
+    can write ∀((x: T) => (P(x) -> Q(x))) like
+        ∀ x (P(x) -> Q(x))
+
+
+--> how to prepare?
+    do practice quizzes in Canvas
+    review homework solutions (they are posted)
+
+    get out paper
+    work through old homework problems
+    work through old lecture examples
+
+    do extra propositional logic examples in exam2_propExamples.txt
+
+    go to exam review at 4:00!
+
+///////////////////////////////////////
+
+Work through practice exam (will post solution after class)

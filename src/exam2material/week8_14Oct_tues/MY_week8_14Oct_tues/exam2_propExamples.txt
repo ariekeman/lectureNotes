@@ -1,0 +1,15 @@
+Review problems that use ImplyI, NegE, NegI, PbC, and BottomE:
+
+p → q ∧ ¬p → q ⊢ q
+
+
+¬(p ∧ q), q ⊢ ¬p
+
+
+¬p → q, ¬(q ∨ r) ⊢ p
+
+
+p → (q ∧ r), (q → ¬s) ⊢ p → ¬s
+
+
+r → ¬(p ∧ q), w → (r → q) ⊢ w → ¬(p ∧ r) 

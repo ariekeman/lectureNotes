@@ -127,31 +127,21 @@ What do these mean in English? Are they true?
 
 ∀ n ∃ m (n^2 < m)
 
-The square of every integer is less than some other integer.
-true
-for each n, pick m = n^2 + 1, and m > n^2
 
 
 
 
 ∀ x ∃ y (x == y^2)
-    All integers equal the square of some other integer
-    All integers are perfect squares
 
-    false. x = 7, no integer squared equals 7.
 
 
 ∀ n ∃ m (n^2 == m)
-    The square of all integers is another integer
 
-    True - when I multiply any two integers I always get another integer
 
 
 ∃ m ∀ n (n^2 == m)
-    There is a number (the SAME number in all cases) that
-        equals the square of every integer
+   
 
-    False - obviously no number is the square of everything
 
 /////////////////////////
 
@@ -160,33 +150,24 @@ for each n, pick m = n^2 + 1, and m > n^2
 /////////////////////////
 
 
-Write the following in predicate logic:
+Write the following in predicate logic (Domain: ℤ):
 ----------------------------------------
 
 The sum of two negative integers is negative
 
-Domain: ℤ
 
-∀ x ∀ y (x < 0 ⋀ y < 0 → x + y < 0)
 
-    true - the sum of two negative numbers becomes more negative,
-        so it is < 0
+
 
 
 
 The difference of two positive integers is
 not necessarily positive
 
-∃ x ∃ y (x > 0 ⋀ y > 0 ⋀ x-y <= 0)
 
 
-not all (....)
-¬(∀ x ∀ y (x > 0 ⋀ y > 0 → x-y > 0))
 
-true
-x = 5
-y = 10
-x - y = -5, which is not positive
+
 
 /////////////////////////
 
@@ -207,10 +188,7 @@ Equivalence: DeMorgan's law (part 1).
 suppose our domain is k1 through kn
 
 
-¬(∃ x P(x)) is  equivalent to...¬(P(k1) V P(k2) V ... V P(kn))
-¬P(k1) ^ ¬P(k2) ^ ... ^ ¬Pk(n)
- ∀ x (¬P(x))
-
+¬(∃ x P(x)) is  equivalent to...
 
 
 /////////////////////////
@@ -244,9 +222,9 @@ Apply DeMorgan's laws: example
 or outside a statement with logical connectives
 
     Reminder:
-        p → q is equivalent to: ¬p ⋁ q 
-        ¬(p ⋀ q) is equivalent to: ¬p ⋁ ¬q
-        ¬(p ⋁ q) is equivalent to: ¬p ⋀ ¬q
+        p → q is equivalent to (OR statement): 
+        ¬(p ⋀ q) is equivalent to: 
+        ¬(p ⋁ q) is equivalent to: 
 
 ///
 Domain: students
@@ -262,32 +240,21 @@ Domain: students
 
 All prize-winners were 5th graders
 
-Translation: ∀ x (wonPrize(x) → in5th(x))
-Negation: ¬(∀ x (wonPrize(x) → in5th(x)))
-    ∃ x (¬(wonPrize(x) → in5th(x)))
-    ∃ x (¬(¬wonPrize(x) ⋁ in5th(x)))
-    ∃ x (wonPrize(x) ⋀ ¬in5th(x))) <--- finished negation
+Translation: 
 
-Translation of negation: There is a student who won a prize
-                        and isn't in 5th grad
+Negation: 
+
+Translation of negation: 
 
 ///
 
 A 5th grade prize winner isn't friends with anyone
 
-two quantifiers
-translation: ∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y))
+translation: 
 
-negate: ¬(∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y)))
-∀ x ∃ y ¬((in5th(x) ⋀ wonPrize(x)) ⋀ ¬friendsWith(x, y))
-∀ x ∃ y (¬(in5th(x) ⋀ wonPrize(x)) ⋁ friendsWith(x, y))
-∀ x ∃ y (¬(in5th(x) ⋀ wonPrize(x)) ⋁ friendsWith(x, y))
+negate: 
 
-Final negation:
-∀ x ∃ y ((in5th(x) ⋀ wonPrize(x)) → friendsWith(x, y))
-
-translation of negation: All 5th grade prize winners have someone 
-                    that they are friends with
+translation of negation: 
 
 ////////////////////////////////////
 
