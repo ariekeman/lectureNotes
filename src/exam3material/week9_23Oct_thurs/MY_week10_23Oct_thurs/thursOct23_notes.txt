@@ -1,0 +1,218 @@
+HW 7 due Tuesday, October 28
+
+/////////////////////////////
+
+Today: 
+- finish predicate logic
+- mathematical induction
+
+/////////////////////////////
+
+Skipping proofs of DeMorgan's laws for quantifers to move on to induction.
+
+Those would be great practice for next exam -- the proof files are in week9_21Oct_tues
+
+/////////////////////////////
+
+
+Soundness and completeness of predicate logic.
+
+
+Soundness: definition?
+
+    propositional:
+
+    predicate logic:
+
+
+
+
+Completeness: definition?
+
+    propositional:
+
+    predicate logic:
+
+
+
+///////////////////////////////////
+
+Same argument might be VALID in one domain and INVALID in another
+
+- deduction can only prove arguments that are valid in ANY domain
+- we can't prove all valid arguments
+
+
+Domain with integers with operations like +
+
+
+All integers? 2 + 3 = ?
+
+
+Subset (0,1,2,3,4) of integers. 2 + 3 = ?
+
+
+
+////////////////////////////////////
+
+
+Godel's Incompleteness Theorem.
+
+Any consistent formal system where integer arithmetic is
+carried out is incomplete -- there will be true statements
+that cannot be proved.
+
+(depends on domains/interpretations)
+
+/////////////////////
+
+////////////////////////////////////////
+
+Example:
+
+We want to prove that for any positive integer n:
+
+    1 + 2 + ... + n = n*(n+1)/2
+
+
+(Carl Gauss)
+
+
+Try it out first.
+    n = 1?
+
+    n = 2?
+
+    n = 3?
+
+
+Have we proved it yet?
+
+
+
+///////////////////////////////////////////
+
+Mathematical induction.
+
+Tool for proving some claim P(n) holds for all natural numbers n
+
+
+
+The induction domino effect:
+
+    ( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+
+
+
+
+What is this saying?
+    P(1)? 
+
+    ∀ k (P(k) → P(k+1))? 
+
+
+
+Putting it all together:
+
+( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+
+
+
+English translation?
+
+
+
+////////////////////////////////////
+
+Why are we doing this?
+
+////////////////////////////////////
+
+Revisit our example:
+
+We want to prove that for any positive integer n:
+
+    1 + 2 + ... + n = n*(n+1)/2
+
+
+
+
+Proof by induction.
+
+
+
+/////////////////////////////////
+
+(in-class quiz)
+
+/////////////////////////////////
+
+Do you think induction can be used to prove properties for
+    ALL integers?
+
+
+/////////////////////////////////
+
+Induction template.
+
+1) 
+
+
+2) 
+
+
+3) 
+
+/////////////////////////////////
+
+Example: Prove that the sum of the first n odd numbers is n^2.
+
+    (what is our domain?)
+
+
+How can we express the sum of the first n odd numbers more formally?
+
+
+
+So, what is our claim?
+
+
+
+Proof by induction.
+
+
+/////////////////////////////////
+
+Example: Prove that 3^n - 1 is even for all positive integers n.
+
+
+what does "even" mean? 
+
+
+
+Proof by induction.
+
+
+
+//////////////////////////////////
+
+Bad induction, example 1.
+
+Use induction to prove that in any nonempty set of n horses, all horses are the same color.
+
+
+//////////////////////////////////
+
+Bad induction, example 1.
+
+
+Use induction to prove that 8n+3 is even for all positive integers n.
+
+(What happens when we skip the base case?)
+
+
+////////////////////////////////////
+
+Next time:
+- more with induction
+- begin survey of proof techniques

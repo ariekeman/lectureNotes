@@ -1,6 +1,6 @@
 Review problems that use ImplyI, NegE, NegI, PbC, and BottomE:
 
-p → q ∧ ¬p → q ⊢ q
+(p → q) ∧ (¬p → q) ⊢ q
 
 
 ¬(p ∧ q), q ⊢ ¬p

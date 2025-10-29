@@ -1,0 +1,405 @@
+HW 7 due tonight
+
+#5, if n is a positive integer, then
+    n^5 - n is divisible by 5
+
+What does it mean to be divisible by 5?
+
+An integer x is divisible by 5 if there exists another integer k
+such that:
+    5k = x
+
+
+5(something) + 5(something)
+
+
+--> what would inductive hypothesis be? That some fixed 
+positive integer k, k^5 - k is divisible by 5
+
+
+
+--> what would we be trying to prove?
+
+That (k+1)^5 - (k + 1) is divisible by 5
+
+Suggest expand it out.
+
+
+
+
+
+#6, if n is natural number, then:
+
+    1*1! + 2*2! + ... + n*n! = (n+1)! - 1
+
+
+--> what would inductive hypothesis be?
+
+That for some fixed natural number k:
+    1*1! + 2*2! + ... + k*k! = (k+1)! - 1
+
+
+--> what would we be trying to prove?
+
+1*1! + 2*2! + ... + k*k! + (k+1)(k+1)! = ((k+1)+1)! - 1
+
+
+5! = 5*4*3*2*1
+
+--> how can we express (n+1)!  = (n+1)*n!  ?
+    (n+2)!  = (n+2)(n+1)!
+
+
+
+--> how can we rewrite  (k+1)! + (k+1)(k+1)!   ?
+
+look for factoring opportunities
+
+(k+1)! + (k+1)(k+1)! = (k+1)!(1 + k + 1) = (k+2)!
+
+HW 8 will be posted after class
+
+///////////////////////
+
+Today:
+- Continue mathematical induction
+- Recursive definitions
+- Begin survey of proof techniques
+
+////////////////////////////////////////////
+
+Induction domino effect  (we can assume this is true)
+
+( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+
+
+P(1) : base (prove our claim for the smallest value in the domain)
+∀ k (P(k) → P(k+1)) : inductive step
+    picked a random individual (fixed k in our domain)
+    assume our claim holds for k (inductive hypothesis)
+    ...
+    try to show that our claim holds for k+1
+
+∀ n P(n) : our claim holds for all n in our domain (what we
+    are trying to prove)
+
+English translation?
+
+IF we can prove the base case
+AND we can prove the inductive step
+THEN we can conclude our claim holds for all n in our domain
+
+///////////////////////
+
+Example: Prove that the sum of the first n odd numbers is n^2.
+
+    (what is our domain?)
+    natural numbers 
+
+
+How can we express the sum of the first n odd numbers more formally?
+
+1 + 3 + 5 + ... + (nth odd number) = n^2
+
+
+So, what is our claim? That for any natural number n:
+
+1 + 3 + 5 + ... + (2n-1) = n^2
+
+
+Proof by induction.
+
+Base case. We must prove that our claim holds for n=1, the first
+natural number. We have 1 on the left side of the claim and 
+1^2 = 1 on the right side of the claim, so the sides are equal.
+The base case holds.
+
+Inductive step. We assume the inductive hypothesis, that
+1 + 3 + 5 + ... + (2k-1) = k^2 for some fixed natural number k.
+We must show that:
+    1 + 3 + 5 + ... + (2k-1) + (2(k+1)-1) = (k+1)^2
+
+We have that:
+    1 + 3 + 5 + ... + (2k-1) + (2(k+1)-1) = k^2 +  (2(k+1)-1) (by inductive hypothesis)
+                            = k^2 + 2k + 2 -1
+                            = k^2 + 2k + 1
+                            = (k+1)^2
+
+Thus inductive step holds.
+
+
+We have shown with induction that sum of the 
+first n odd numbers is n^2
+
+////////////////////////////////
+
+Example: prove that for all nonnegative integers n:
+    2^0 + 2^1 + ... + 2^n = 2^(n+1) - 1
+
+Base case. We must prove that our claim holds for n=0, which
+is the smallest nonnegative integer. We have on the left side:
+    2^0 = 1
+And we have on the right side:
+    2^(0+1) - 1 = 2 - 1 = 1
+The two sides are equal, so the base case holds.
+
+Inductive step. We assume the inductive hypothesis, that:
+    2^0 + 2^1 + ... + 2^k = 2^(k+1) - 1
+For some fixed nonnegative integer k. We must show that:
+    2^0 + 2^1 + ... + 2^k + 2^(k+1) = 2^((k+1)+1) - 1
+
+We have that:
+    2^0 + 2^1 + ... + 2^k + 2^(k+1) = 2^(k+1) - 1 + 2^(k+1) (by inductive hypothesis)
+                = 2*(2^(k+1)) - 1
+                = 2^(k+2) - 1
+                = 2^((k+1)+1) - 1
+    
+The inductive step holds.
+
+We have shown with induction that for all nonnegative integers n:
+    2^0 + 2^1 + ... + 2^n = 2^(n+1) - 1
+
+/////////////////////////////////
+
+Recursively defined functions.
+
+
+To define a function whose domain is the set of natural numbers
+(or some other set of integers with a lowest value)
+
+Base case: Specify the value of the function at 1 (or some other
+    lowest value). (There may be more than one base case.)
+
+
+Recursive step: Give a rule for finding the value of the function
+    at all bigger integers in our domain using its smaller values
+
+
+
+
+//////////////////////////////////
+
+Example (domain: all natural numbers, 1 and up):
+
+f(1) = 3
+f(n) = 2f(n-1) + 3, for n > 1
+
+
+What is f(3)?
+
+f(3) = 2f(2) + 3 = 2*9 + 3 = 21
+f(2) = 2f(1) + 3 = 2*3 + 3 = 9
+f(1) = 3
+
+
+
+
+//////////////////////////////////
+
+What does this define? (domain: natural numbers)
+
+g(1) = 1
+g(n) = n * g(n-1), for n > 1
+
+n  | g(n)
+---------
+1  |  1
+2  |  2 * g(1) = 2*1 = 2
+3  | 3 * g(2) = 3 * 2 = 6
+4  | 4 * g(3) = 4*6 = 24
+
+defining factorial 
+
+
+
+//////////////////////////////////
+
+Consider this pattern: 1, 2, 4, 7, 11, 16, 22, ...
+
+Write a recursive definition.
+
+Over natural numbers.
+
+n | f(n)
+-----------------
+1 | 1
+2 | 2
+3 | 4
+4 | 7
+5 | 11 = 7 + (4) = f(n-1) + (n-1)
+
+f(1) = 1
+f(n) = f(n-1) + (n-1), for n > 1
+
+
+Base case?
+Recursive case?
+
+
+
+////////////////////////////////
+
+Recursively defined sets:
+
+
+Consider the subset S of the set of integers, defined as:
+
+Base case: 1, 2 ∈ S
+
+Recursive case: x ∈ S ⋀ y ∈ S → xy ∈ S
+
+--> what are the elements in S?
+
+{1, 2, 4, 8, 16, ...}
+
+In set builder notation:
+
+{x : x = 2^k, k ∈ Z, k >= 0}
+
+
+///////////////////////////////
+
+Write a recursive definition for the set S = {1, 3, 5, 7, ...}
+
+(positive odd numbers)
+
+Base case. 1 ∈ S
+Recursive step. x ∈ S → x+2 ∈ S  
+
+
+
+
+////////////////////////////////
+
+(in-class quiz)
+
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+Now we will look at more informal proofs.
+
+--> why? (prove programs are correct, prove running time,
+    prove systems are secure, make inferences, prove specifications
+    are consistent, etc.)
+
+///////////////////////////////
+
+Definitions.
+
+
+An integer n is *even* if n = 2k for some k ∈ ℤ.
+
+
+
+An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
+
+
+
+Any integer that is not odd is even,
+and any integer that is not even is odd.
+
+
+///////////////////////////////
+
+Direct (conditional) proof
+
+
+- Often want to prove things of the form: "If P, then Q"
+
+--> how would we do this with natural deduction?
+
+Assume P 
+...
+Try to get Q
+
+
+
+
+
+/////////////////////////////
+
+Direct proof template. If P, then Q
+
+Assume P
+...
+Q
+
+
+
+
+
+/////////////////////////////
+
+Example: prove that the product of two even integers is even.
+
+
+If our domain is integers and we have the predicate Even(x), how
+would you write this statement in predicate logic?
+
+∀ x ∀ y (Even(x) ^ Even(y) -> Even(xy))
+
+
+
+What's the idea of proving this in predicate logic?
+
+Pick a random indiv1
+Pick another random indiv2
+Assume indiv1 is even and indiv2 is even.
+...
+want to show indiv1*indiv2 is even
+
+
+
+
+the product of two even integers is even
+
+Direct proof:
+Let n and m be even integers. If n is even, then there exists
+an integer k such that 2k = n. If m is even, then there exists
+an integer j such that 2j = m. We have:
+    nm = (2k)(2j)
+        = 2(2kj)
+
+Thus nm = 2a where a is the integer 2kj. Thus nm is even.
+
+
+
+
+--> How is our proof similar to natural deduction?
+
+////////////////////////////////
+
+Example.
+
+The square of any odd integer is odd.
+
+How can we write this in predicate logic?
+
+∀ x (Odd(x) -> Odd(x^2))
+
+
+
+Direct proof:
+Let n be an odd integer. Then n = 2k+1 for some integer k.
+We have that:
+
+    n^2 = (2k+1)^2
+        = 4k^2 + 4k +1
+        = 2(2k^2 + 2k) + 1
+
+Thus n^2 = 2a + 1 where a is the integer 2k^2 + 2k, and so
+n^2 is odd.
+
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+Next time:
+- More proof techniques

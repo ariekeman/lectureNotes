@@ -1,0 +1,332 @@
+HW 7 due Tuesday, October 28
+
+/////////////////////////////
+
+Today: 
+- finish predicate logic
+- mathematical induction
+
+/////////////////////////////
+
+Skipping proofs of DeMorgan's laws for quantifers to move on to induction.
+
+Those would be great practice for next exam -- the proof files are 
+    in week9_21Oct_tues
+
+/////////////////////////////
+
+
+Soundness and completeness of predicate logic.
+
+
+Soundness: definition? everything that we can prove with our proof system   
+    is actually true
+
+    propositional: yes
+
+    predicate logic: yes
+
+    (same for any proof system)
+
+
+
+
+Completeness: definition? we can use our proof system to prove 
+    everything that is true 
+
+    propositional: yes
+
+    predicate logic: NO 
+
+
+Premise: All x P(x)
+Conclusion: Exists x P(x)
+
+Not true when our domain is empty, but true any other time
+
+
+
+///////////////////////////////////
+
+Same argument might be VALID in one domain and INVALID in another
+
+- deduction can only prove arguments that are valid in ANY domain
+- we can't prove all valid arguments
+
+
+Domain with integers with operations like +
+
+
+All integers? 2 + 3 = ? 5
+
+
+Subset (0,1,2,3,4) of integers. 2 + 3 = ? 0
+
+
+
+////////////////////////////////////
+
+
+Godel's Incompleteness Theorem.
+
+Any consistent formal system where integer arithmetic is
+carried out is incomplete -- there will be true statements
+that cannot be proved.
+
+(depends on domains/interpretations)
+
+////////////////////////////////////////
+
+Next topic: mathematical induction
+
+////////////////////////////////////////
+
+Example:
+
+We want to prove that for any positive integer n:
+
+    1 + 2 + ... + n = n*(n+1)/2
+
+
+(Carl Gauss)
+
+
+Try it out first.
+    n = 1?
+
+    n = 2?
+
+    n = 3?
+
+
+Have we proved it yet?
+
+
+
+///////////////////////////////////////////
+
+Mathematical induction.
+
+Tool for proving some claim P(n) holds for all natural numbers n
+
+
+
+The induction domino effect:
+
+    ( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+
+
+
+
+What is this saying?
+    P(1)? base case. prove that my claim holds for n = 1
+
+    ∀ k (P(k) → P(k+1))? inductive step.
+        for any natural number k, if the claim
+        holds for k, then it holds for k+1.
+
+        Pick a random individual in your domain (k).
+        Assume P(k).
+        Try to prove P(k+1)
+
+
+∀ n P(n)? for any natural number n, the claim holds for n 
+
+
+
+
+Putting it all together:
+
+( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+
+
+
+English translation?
+IF we can show the base case
+AND we show the inductive step
+THEN we can conclude that the claim is true for 
+    everything in our domain
+
+
+////////////////////////////////////
+
+Why are we doing this?
+
+////////////////////////////////////
+
+Revisit our example:
+
+We want to prove that for any positive integer n:
+
+    1 + 2 + ... + n = n*(n+1)/2
+
+
+
+
+Proof by induction.
+
+Base case. We must prove that our claim holds for the first positive
+integer, n = 1. We have that:
+    1 = 1*(1+2)/2
+The base case holds.
+
+Inductive step. We assume the inductive hypothesis -- that
+our claim holds for some fixed positive integer k. We must show
+that our claim holds for k+1.
+
+If our claim holds for k, then we have:
+    1 + 2 + ... + k = k(k+1)/2
+
+To prove our claim holds for k+1, we must show:
+    1 + 2 + ... + k + k+1 = (k+1)((k+1)+1)/2
+
+We have that:
+    1 + 2 + ... + k + k+1 = k(k+1)/2 + k + 1 (by inductive hypothesis)
+                        = (k(k+1) + 2(k+1))/2
+                        = (k+1)(k+2)/2
+                        = (k+1)((k+1)+1)/2
+
+The inductive step holds.
+
+
+We have shown with induction that our claim holds for any positive integer n.
+
+
+/////////////////////////////////
+
+(in-class quiz)
+
+/////////////////////////////////
+
+Do you think induction can be used to prove properties for
+    ALL integers?
+
+    must have a smallest value in the domain
+
+
+/////////////////////////////////
+
+Induction template.
+
+1) Label base case. Prove the claim is true for the smallest element in
+    your domain.
+
+
+2) Label the inductive step. "Assume the inductive hypothesis - 
+    that <insert claim> holds for some fixed k in <insert domain>".
+
+
+3) Try to prove for k+1. "We must show that our claim holds for k+1".
+
+4) Summarize. "It follows by induction that <insert claim> holds
+    for all <insert domain>".
+
+/////////////////////////////////
+
+(skipped this example - we will do it on Tuesday)
+
+Example: Prove that the sum of the first n odd numbers is n^2.
+
+    (what is our domain?)
+
+
+How can we express the sum of the first n odd numbers more formally?
+
+
+
+So, what is our claim?
+
+
+
+Proof by induction.
+
+
+/////////////////////////////////
+
+Example: Prove that 3^n - 1 is even for all positive integers n.
+
+
+what does "even" mean? 
+A number k is even if there exists an integer a such that k = 2a.
+
+
+
+Proof by induction.
+
+Base case. We must prove that our claim holds for our smallest positive
+integer, n = 1. We have that 3^1 - 1 = 3 - 1 = 2. Because 2 = 2*1,
+and 1 is an integer, we know 2 is even. The base case holds.
+
+Inductive step. We assume the inductive hypothesis -- that 3^k - 1 is
+even for some positive integer k. We must show that 3^(k+1) - 1 is even.
+
+If 3^k - 1 is even, then there exists an integer a such that 
+    2a = 3^k - 1
+
+We have that:
+    3^(k+1) - 1 = 3(3^k) - 1
+                = 3(3^k - 1) -1 + 3
+                = 3(2a) + 2 (by inductive hypothesis)
+                = 2(3a + 1)
+
+Thus 3^(k+1) - 1 is even since 3a + 1 is an integer. The inductive step holds.
+
+
+We have shown with induction that 3^n - 1 is even for all positive integers n.
+
+//////////////////////////////////
+
+Bad induction, example 1.
+
+Use induction to prove that in any nonempty set of n horses, 
+all horses are the same color.
+
+Base case. I have a set of one horse. Of course it is the same color.
+
+Inductive step. We assume the inductive hypothesis, that for some 
+fixed positive integer k, that a set of k horses all has the same color.
+
+We must show that a set of k+1 horses all has the same color.
+
+Exclude the first horse from our k+1 set. We would have k horses left,
+and those horses all have same color by our inductive hypothesis.
+
+Exclude the last horse from our k+1 set. We have k horses left,
+and those horses all have the same color by our inductive hypothesis.
+
+The two sets of k horses (the first k horses and the last k horses)
+overlap (they share the middle k-1 horses in common), and so
+they all must share the same color.
+
+
+Problem: I made an assumption about k in the inductive step. 
+The two sets of k horses do NOT overlap when k = 1.
+
+
+//////////////////////////////////
+
+Bad induction, example 2.
+
+
+Use induction to prove that 8n+3 is even for all positive integers n.
+
+(What happens when we skip the base case?)
+
+We assume the inductive hypothesis -- that 8k+3 is even for some 
+fixed positive integer k. We must show that 8(k+1) + 3 is even.
+
+If 8k+3 is even, then there exists an integer a such that 8k+3 = 2a.
+
+We have that :
+    8(k+1) + 3 = 8k + 8 + 3
+               = 2a + 8 (by inductive hypothesis)
+               = 2(a + 4)
+
+
+Problem? This claim isn't actually true, and the base case doesn't hold.
+
+////////////////////////////////////
+
+Next time:
+- more with induction
+- begin survey of proof techniques
