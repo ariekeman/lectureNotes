@@ -1,0 +1,350 @@
+HW 8 due Tuesday, November 4
+
+///////////////////////////
+
+Today:
+- more with direct proofs
+- contrapositive proofs
+- proofs by contradiction
+- proofs with sets
+
+/////////////////
+
+Example (review).
+
+The sum of two odd integers is even.
+
+
+If we have two odd integers, then their sum is even.
+
+Let n and m be two odd integers. If n is odd, then n = 2k+1 for some
+integer k, and if m is odd, then m = 2a+1 for some integer a.
+
+Consider n+m:
+    n+m = (2k+1)+(2a+1)
+        = 2k + 2a + 2
+        = 2(k+a+1)
+
+Thus n+m = 2b where b is the integer k+a+1, and so n+m is even.
+
+////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+/////////////////////////////////
+
+Proof by contrapositive
+
+--> Also for proving things of the form "If P, then Q"
+
+
+What is the contrapositive of P → Q?
+¬Q → ¬P
+
+
+
+
+Proof by contrapositive template:
+
+Assume ¬Q
+...
+try to get ¬P
+
+
+
+
+
+//////////////////////////////////////////
+
+Example (contrapositive)
+
+If x^2 is odd for an integer x, then x is odd.
+
+Think of as P → Q
+    P: ? x^2 is odd for an integer x
+    Q: ? x is odd
+
+Contrapositive? 
+
+If some integer x is even, then x^2 is even
+
+
+
+Try direct proof first.
+If x^2 is odd for an integer x, then x is odd.
+
+Assume n^2 odd for some integer n. Then n^2 = 2k+1 where k is an 
+integer. We have:
+    n^2 = 2k+1
+
+(stuck: don't have a good way of showing sqrt(2k+1) is an int)
+
+(want to show n is odd. would need: n = 2m+1 )
+
+
+
+
+
+Now try contrapositive proof.
+If some integer x is even, then x^2 is even
+
+
+(Proof by contrapositive) Assume n is even for some integer n.
+Then n = 2k for some integer k. We have:
+    n^2 = (2k)^2
+        = 4k^2
+        = 2(2k^2)
+
+Thus n^2 = 2b where b is the integer 2k^2, and so n^2 is even.
+
+--> best to indicate in proof that you are using contrapositive
+
+////////////////////////////////
+
+Mistakes in proofs.
+
+We want to "prove" that 1 = 2.
+
+
+"Proof:"
+Let a and b be two equal positive integers. We have that:
+
+    1) a = b                    (reason?) picked to be equal
+
+    2) a^2 = ab                 (reason?) multiply both sides by a
+
+    3) a^2 - b^2 = ab - b^2     (reason?) subtract b^2 from both sides
+
+    4) (a-b)(a+b) = b(a-b)      (reason?) factored both sides
+
+    5) a+b = b                  (reason?) divided both sides by a-b
+
+    6) 2b = b                   (reason?)  (a and b picked to be equal)             
+
+    7) 2 = 1                    (reason?) (divided both sides by b)
+
+
+
+//////////////////////////////////////
+
+Proof by contradiction.
+
+- same idea as PbC in natural deduction
+
+- assume that what you are trying to prove is not true
+
+- try to get a contradiction
+
+- conclude what you are trying to prove is true after all
+
+
+
+
+/////////////////////////
+
+Proof by contradiction template 1 (trying to prove P)
+
+
+Suppose, for the sake of contradiction, ¬P.
+...
+C ^ ¬C.
+
+We have a contradiction between C and ¬C, so P must hold.
+
+
+
+
+
+//////////////////////////
+
+Proof by contradiction template 2 (trying to prove If P, then Q):
+
+
+Assume P.
+Suppose, for the sake of contradiction, ¬Q.
+...
+C ^ ¬C.
+We have a contradiction between C and ¬C, so Q must hold.
+
+
+
+
+
+///////////////////////////
+
+Example (use proof by contradiction):
+
+If x^2 is even for an integer x, then x is even.
+
+(which template? )  2
+
+Assume n^2 is even for some integer n. Then n^2 = 2k for some integer k.
+Suppose, for the sake of contradiction, that n is odd. Then 
+n = 2m+1 where m is an integer. We have:
+    n^2 = (2m+1)^2
+        = 4m^2 + 4m + 1
+        = 2(2m^2 + 2m) +1
+
+Thus n^2 = 2b + 1 where b is the integer 2m^2 + 2m, and n^2 is odd.
+This contradicts with our earlier assumption that n^2 is even.
+
+Thus n is even.
+
+(looking for a contradiction)
+
+
+
+//////////////////////////
+
+(in-class quiz)
+
+//////////////////////////
+
+Definitions: "rational" / "irrational"
+
+A number r is *rational* if r = p/q for some integers p and q,
+where q ≠ 0.
+
+
+
+Any number that is not rational is irrational,
+and any number that is not irrational is rational.
+
+//////////////////////////
+
+Example: use proof by contradiction to prove that sqrt(2)
+is irrational.
+
+(which template?  ) 1 (just the statement)
+
+Suppose, for the sake of contradiction, that sqrt(2) is rational.
+Thus sqrt(2) = p/q where p,q are integers and q != 0. We pick p and q 
+to share no common factors, so that p/q is fully reduced.
+
+Squaring both sides of sqrt(2) = p/q, we get:
+    2 = p^2/q^2
+
+Multiplying both sides by q^2, we have:
+    2q^2 = p^2
+
+Thus p^2 = 2a where a is the integer q^2, and so p^2 is even. Thus
+from our earlier example, p is also even. Since p is even, then 
+p = 2b where b is an integer.
+
+Substituting p = 2b into our earlier equation, we have:
+
+    2q^2 = (2b)^2 
+        = 4b^2
+
+We have 2q^2 = 4b^2, and we can divide both sides by 2:
+
+    q^2 = 2b^2
+
+Thus q^2 = 2k where k is the integer b^2, and so q^2 is even.
+Again from our earlier example, q must also be even.
+
+Since p and q are both even, then they both share 2 as a factor.
+This contradicts with our earlier assumption that p and q shared
+no common factors.
+
+Thus sqrt(2) is irrational.
+
+
+/////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+/////////////////////////////////
+
+Proofs with sets.
+
+Prove that A ⊆ B?
+    --> how would we express this in predicate logic?
+
+∀ x ∈ A → x ∈ B
+
+    --> proof template? 
+
+Pick a random individual that they are in A. (write out what that means)
+
+Try to show the individual is in B. 
+
+
+
+
+Prove that A = B?
+
+Show both A ⊆ B and B ⊆ A
+
+///////////////////////////////
+
+Example.
+
+Prove that {x : x = 4k + 2, k ∈ ℤ} ⊆ {x : x = 2a, a ∈ ℤ}
+
+A = {x : x = 4k + 2, k ∈ ℤ} (all elements 2 bigger than some multiple of 4)
+B = {x : x = 2a, a ∈ ℤ} (all multiples of 2)
+
+A: what elements?  
+
+
+B: what elements? 
+
+
+Proof that A ⊆ B.
+
+Let m ∈ A. Thus m = 4k + 2 for some integer k. We have:
+    m = 4k + 2
+     = 2(2k + 1)
+
+So m = 2a where a is the integer 2k+1, and so m ∈ B.
+
+(need m = 2(some integer))
+...(want: m ∈ B)
+
+
+
+
+
+///////////////////////////////
+
+⋂: means?
+
+A ⋂ B = {x : x ∈ A ^ x ∈ B}
+
+
+Prove that {x : x = 2k, k ∈ ℤ} ⋂ {x : x = 3m, m ∈ ℤ} = {x : x = 6a, a ∈ ℤ}
+
+Let A = {x : x = 2k, k ∈ ℤ} all multiples of 2
+Let B = {x : x = 3m, m ∈ ℤ} all multiples of 3
+Let C = {x : x = 6a, a ∈ ℤ} all multiples of 6
+
+First, we prove that A ⋂ B ⊆ C. 
+Let n ∈ A ⋂ B. Then n ∈ A ^ n ∈ B. Since n ∈ A, then n = 2k for some
+integer k. Since n ∈ B, then n = 3m for some integer m.
+    n = 4n - 3n
+        = 4(3m) - 3(2k)
+        = 12m - 6k
+        = 6(2m - k)
+
+Thus n = 6a where a is the integer 2m - k, and so n ∈ C.
+
+(goal: n = 6a to show that n is in C)
+
+
+
+Next, we prove C ⊆ A ⋂ B.
+
+Let n ∈ C. Thus n = 6a for some integer a. We have that:
+    n = 6a
+        = 2(3a)
+
+And so n = 2k where k is the integer 3a, which means n ∈ A.
+
+We also have that;
+    n = 6a
+        = 3(2a)
+
+And so n = 3m where m is the integer 2a, which means n ∈ B.
+Since n is in both A and B, then n ∈ A ⋂ B.
+
+//////////////////////////////
+
+Next time: begin programming logic
+    (last major unit)
