@@ -1,0 +1,363 @@
+HW 9 due Tuesday, November 11
+
+Any Logika issues?
+
+////////////////////////////
+
+Today:
+
+- Subst rule
+- Assignment with mutation
+- Conditional statements
+
+
+
+////////////////////////////
+
+The Algebra* justification works for most mathematical manipulations
+
+Will not work on claims involving ∧, ∨, →, ∀, ∃
+
+y == z
+x == 2 ∧ x == y
+
+x == 2 ∧ x == z
+
+Another justification: Subst
+
+
+
+
+/////////////////////////////
+
+Subst_<(m, n)  and Subst_>(m, n)
+
+
+
+Deduce(
+    ...
+    m ( LHS_M == RHS_M ),      //must be an equivalence
+    ...
+    n ( claim1 ),
+    ...
+    
+    //rewrites claim1 by replacing all occurrences of LHS_M with RHS_M
+    j ( claim2 )                by Subst_<(m, n)  
+
+
+    //rewrites claim1 by replacing all occurrences of RHS_M with LHS_M
+    k ( claim3 )                by Subst_>(m, n)
+)
+
+
+The < or > points at the side being REPLACED (the side that is going away)
+
+
+/////////////////////////////////
+
+Examples:
+
+Deduce(
+    ...
+    m ( x + 1 == y - 4 )                    by Something,
+    ...
+    n ( x*(x + 1) == (x + 1) + y )          by Something
+    ...
+    j ( x*(y-4) == (y-4) + y )              by Subst_<(m, n) 
+)
+
+
+Example:
+
+Deduce(
+    ...
+    m ( x + 1 == y )
+    ...
+    n ( y*(x + 1) == (x + 1) + y )
+    ...
+    j ( (x+1)*(x + 1) == (x + 1) + x + 1 )  by Subst_>(m, n)
+
+
+
+
+/////////////////////////////
+
+Example (code fragment):
+
+val num: Z = x + 2
+val answer: Z = 4*num + 8
+val another: Z = 5 - (x + 2)*3
+
+
+Deduce(
+    1 ( num == x + 2 )              by Premise,
+    2 ( answer == 4*num + 8 )       by Premise,
+    3 ( another == 5 - (x+2)*3 )    by Premise,
+
+    //substitute in for "num" in "answer"
+    4 ( answer == 4*(x+2) + 8 )     by Subst_<(1, 2)
+
+
+    //substitute in for "x+2" in "another"
+    5 ( another == 5 - (num)*3 )    by Subst_>(1, 3)
+)
+
+
+//////////////////////////////
+
+Assignment with mutation
+
+
+var x: Z = 2
+
+//what could we put in a proof block here?
+
+Deduce(
+    1 ( x == 2 ) by Premise
+)
+
+
+
+x = x + 2       
+
+Deduce(
+    1 ( x == Old(x) + 2 ) by Premise,
+    2 ( Old(x) == 2 ) by Premise,
+    3 ( x == 4 ) by Algebra*(1,2)
+)
+
+
+//what might we try to put in a proof block here?
+
+
+x = x + 4
+
+Deduce (
+    1 ( Old(x) == 4 ) by Premise,
+    2 ( x == Old(x) + 4 ) by Premise
+    3 ( x == 8 ) by Algebra*(1,2)
+)
+
+
+//////////////////////////////
+
+If you change the value of variable "name", write that claim
+using:
+
+    Old(name)
+
+in the very next proof block. Only ONE "Old" value exists
+at a time.
+
+
+The Old(name) refers to value of the variable just before
+the latest update.
+
+Goal: state that variable's current value WITHOUT using Old
+by the end of next proof block
+
+
+y = y + 4
+
+//would need to use Old(y) here
+//can't access Old(y) after another variable changes
+
+x = x + 3
+
+Deduce(
+    //what "Old" values are available?
+    Old(x)
+
+    NOT Old(y)
+)
+
+//////////////////////
+
+Example (add3.sc):
+
+- get an input number
+- save out an "orig" value that is equal to the input
+
+add 1 to the input number
+add 2 to the input number
+
+want to assert that the resulting number is 3 more than the orig value
+
+
+
+--> what if we added an assume that the input number
+    was positive?
+
+--> could we add to our assert that the resulting number
+    is positive?
+
+//////////////////////////////////
+
+Note: programs with division
+
+the only number data type is Z, which is integer
+
+
+x / 7 - always integer division
+
+//what if x is 10
+test = x / 7        //test would be 1
+
+Deduce(
+    1 ( test == x / 7 ) by Premise, 
+    2 ( test*7 == x ) by Algebra*(1)  //could do if x was a multiple of 7
+                            // x % 7 == 0
+)
+
+
+
+have to say we're not dividing by 0:
+
+Deduce(
+    1 (7 != 0 ) by Algebra T,
+    2 ( b != 0 ) would need a justification
+)
+
+var test: Z = x / 7
+var another: Z = a / b
+
+
+
+//////////////////////////////////
+
+(in-class quiz)
+
+//////////////////////////////////
+
+Verifying conditional statements.
+
+For now, we'll just look at if/else statements:
+
+
+if (condition) {
+
+} else {
+    //can put another if/else in here
+}
+
+
+/////////////////////////////////
+
+(maxOfTwo.sc)
+
+Example: max of two numbers
+
+
+...we still need to prove our assert
+
+
+/////////////////////////////////
+
+How to validate programs with conditionals.
+
+if (C) {
+
+} else {
+
+}
+
+assert(something)
+
+/////////////////////////////////
+
+Deduce(
+    1 ( P )
+)
+
+if (C) {
+    Deduce(
+        //what premises?  
+
+        1 ( C ) //from condition
+        2 ( P ) //from previous block
+    )
+
+    statements
+
+    Deduce(
+        1 ( Q ) by Justification,
+        2 ( A ) by Justification
+    )
+
+} else {
+    Deduce(
+        //what premises? 
+        
+        1 (!C) by Premise //the condition is false
+        2 ( P ) by Premise //still true here
+    )
+
+    statements
+
+    Deduce(
+        1 ( Q ) by Justification,
+        2 ( B ) by Justification
+    )
+}
+
+Deduce(
+    //what premises?
+    1 ( Q ) by Premise, //true in both branches
+    2 ( A | B) by Premise, //A was established in the if and B was established in the else
+)
+
+/////////////////////////////
+
+Revisit the max example (maxOf2.sc)
+
+- what claims can we make in BOTH branches?
+- what claim will be different in the two branches?
+- finish the validation
+
+////////////////////////////////
+
+(abs.sc)
+
+Example: absolute value
+
+(skipped this example, will do on Tuesday)
+
+////////////////////////////////
+
+Next week:
+- Verifying programs with nested conditionals
+    (your last HW 9 problem is like this)
+- Verifying functions
+
+if (cond1) {
+    if (cond2) {
+        //know: cond1, cond2
+
+        //P 
+        //Q 
+    } else {
+        //know: cond1, !(cond2)
+
+        //P 
+        //R 
+    }
+    //Deduce block
+        //P (true in both)
+        //Q | R (1st in if, 2nd in else )
+
+} else {
+    if (cond2) {
+        //know? !(cond1), cond2
+
+        //P
+    } else {
+        //know? !(cond1), !(cond2)
+
+        //P
+    }
+    //Deduce block
+        //P
+}
+
+Deduce block
+P 

@@ -1,0 +1,159 @@
+HW 9 due tonight
+
+    Algebra* justfication for Mac users
+
+ 
+HW 10 will be posted after class, due next Tues
+
+Exam 3 is Thursday, November 20
+    (more information will be posted this week)
+
+//////////////////////
+
+Today:
+- one more conditional verification example
+- verification with nested conditionals
+- verifying programs with functions
+
+//////////////////////////////////
+
+(abs.sc)
+
+Example: absolute value
+
+////////////////////////////////
+
+Verify programs with nested conditionals.
+
+Max of 3 numbers
+
+-- see code
+
+-- in each branch, what do we know about max?
+
+-- finish verification
+
+//////////////////////////////////
+
+Function contracts - just under function definition:
+
+Contract(
+    Requires(
+        precondition,
+        precondition,
+    ),
+    Ensures(
+        postcondition,
+        postcondition
+    )
+)
+
+
+Requires/preconditions:
+- any assumptions we need to make about the parameters
+- user must prove these requirements BEFORE calling the function
+- list preconditions as PREMISES in first proof block in function
+- can none or several preconditions
+
+
+///
+
+Ensures/postconditions:
+- describes what the function returns (or what it changes)
+    - use "Res[Z]" to mean return value (if returning Z)
+
+- function has to PROVE that it is fulfilling the postconditions
+
+- user can use a postcondition as a PREMISE in a proof block
+    after calling the function
+
+- can have several postconditions
+
+
+/////////////////////////////////
+
+Example: tickets.sc
+- find the total cost of tickets based on adult/child numbers
+- each adult ticket is $50, and each child ticket is $30
+
+- what do we need as preconditions?
+
+- what do we want as the postcondition?
+
+--> finish verification
+
+
+//////////////////////////////////
+
+(in-class quiz)
+
+//////////////////////////////////
+
+Four steps:
+
+1) What should be done before calling the function?
+
+
+
+
+2) What can the function itself do with the preconditions?
+
+
+
+
+3) What must the function do with the postconditions?
+
+
+
+
+4) What can the calling code do with the postcondition after
+    the function returns? 
+
+
+
+
+
+
+/////////////////////////////////
+
+Example: put our abs code in a function (absFn.sc)
+
+(will finish this example on Thursday)
+
+/////////////////////////////////
+
+Recursive functions
+
+- exactly the same idea
+
+if (base case condition) {
+    answer = base case
+} else {
+
+    //what to do here?
+
+    recursive call
+
+    //what can we do here?
+
+    answer = recursive call case
+}
+
+//if we want some postcondition after an if/else, what do we do?
+
+return answer
+
+
+
+/////////////////////////////////
+
+Example (mult_rec.sc):
+
+- multiplication through repeated (recursive) addition
+- write function contract
+- do verification
+
+/////////////////////////////
+
+Next time:
+- verifying functions with loops
